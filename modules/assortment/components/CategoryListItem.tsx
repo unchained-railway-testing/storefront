@@ -26,7 +26,7 @@ const CategoryListItem = ({ category }) => {
               loader={defaultNextImageLoader}
             />
           </div>
-          <h3 className="mt-4 text-base font-semibold text-slate-900 dark:text-slate-100">
+          <h3 className="mt-4 text-base font-medium text-slate-900 dark:text-slate-100">
             {category.texts?.title}
           </h3>
           <p className="mt-1 text-center text-sm text-slate-500 dark:text-slate-400">
@@ -38,7 +38,7 @@ const CategoryListItem = ({ category }) => {
           <div className="mt-8">
             <h3 className="text-lg font-medium">
               <span className="absolute inset-0" aria-hidden="true" />
-              <h3 className="mt-4 text-base font-semibold text-slate-900 dark:text-slate-100">
+              <h3 className="mt-4 text-base font-medium text-slate-900 dark:text-slate-100">
                 {category.texts?.title}
               </h3>
               <p className="mt-1 text-center text-sm text-slate-500 dark:text-slate-400">
