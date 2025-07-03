@@ -22,7 +22,7 @@ const GetCurrentStep = ({
   switch (parseInt(step, 10)) {
     case 2:
       return (
-        <div className="bg-white">
+        <div className="bg-beige">
           <label
             htmlFor="password"
             className="block text-sm font-medium text-brown-600"
@@ -241,7 +241,7 @@ const LogInForm = () => {
           </button>
         )}
 
-        <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md bg-white dark:bg-slate-500">
+        <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md bg-beige dark:bg-slate-500">
           <div
             className={classNames("py-8 px-4 shadow sm:rounded-lg sm:px-10")}
           >

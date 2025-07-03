@@ -62,109 +62,59 @@ const CartItem = ({
   };
 
   return (
-    <li className="flex py-6 px-4 sm:px-6" key={_id}>
-      <div className="relative h-20 w-20 flex-shrink-0 rounded-md">
+    <div className="flex" key={_id}>
+      <div className="size-24 shrink-0 overflow-hidden rounded-md border border-olivebrown-light-2">
         {getMediaUrl(product) ? (
-          <Image
+          <img
             src={getMediaUrl(product)}
             alt={product?.texts?.title}
-            layout="fill"
-            placeholder="blur"
-            blurDataURL="/placeholder.png"
-            objectFit="cover"
-            loader={defaultNextImageLoader}
+            className="size-full object-cover"
           />
         ) : (
-          <div className="relative h-full w-full">
-            <PhotoIcon className="absolute inset-0 h-full w-full text-slate-200  dark:text-slate-500" />
+          <div className="size-full flex items-center justify-center bg-olivebrown-alt">
+            <PhotoIcon className="h-12 w-12 text-olivebrown-light" />
           </div>
         )}
       </div>
 
-      <div className="ml-6 flex flex-1 flex-col">
-        <div className="flex">
-          <div className="min-w-0 flex-1">
-            <h4 className="text-sm">
+      <div className="ml-4 flex flex-1 flex-col">
+        <div>
+          <div className="flex justify-between text-base font-medium text-olivebrown-darker">
+            <h3>
               <Link
                 href={`/product/${product?.texts?.slug}`}
-                className="font-medium text-slate-700 hover:text-slate-800 dark:text-slate-100 dark:hover:text-slate-400"
+                className="hover:text-olivebrown"
               >
-                {product?.texts && product?.texts.title}
+                {product?.texts?.title}
               </Link>
-            </h4>
+            </h3>
+            <p className="ml-4">
+              <FormattedPrice price={unitPrice} />
+            </p>
           </div>
-          {enableUpdate ? (
-            <div className="ml-4 flow-root flex-shrink-0">
-              <button
-                type="button"
-                className="-m-2.5 flex items-center justify-center p-2.5 text-slate-400 hover:text-slate-500 dark:text-slate-100"
-                onClick={() => removeCartItem({ itemId: _id })}
-              >
-                <span className="sr-only">
-                  {formatMessage({ id: "remove", defaultMessage: "Remove" })}
-                </span>
-                <TrashIcon className="h-5 w-5" aria-hidden="true" />
-              </button>
-            </div>
-          ) : null}
+          {product?.texts?.subtitle && (
+            <p className="mt-1 text-sm text-olivebrown-dark">{product?.texts?.subtitle}</p>
+          )}
         </div>
-
-        <div className="flex flex-1 items-end justify-between pt-2">
-          <p className="mt-1 text-sm font-medium text-slate-900 dark:text-slate-100">
-            <FormattedPrice price={unitPrice} />
+        <div className="flex flex-1 items-end justify-between text-sm">
+          <p className="text-olivebrown-dark">
+            {formatMessage({ id: "qty", defaultMessage: "Qty" })} {quantity}
           </p>
 
-          <div className="ml-4">
-            <label htmlFor="quantity" className="sr-only">
-              {formatMessage({ id: "quantity", defaultMessage: "Quantity" })}
-            </label>
-            {enableUpdate ? (
-              <div className="flex flex-wrap items-end justify-between">
-                <div className="flex items-end justify-center gap-1">
-                  <button
-                    type="button"
-                    className="rounded-md border border-slate-300 text-left text-base font-medium text-slate-700 shadow-sm focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-500 dark:text-slate-200 dark:shadow-white sm:text-sm"
-                    aria-label="Increase cart item"
-                    disabled={currentQuantity === 1}
-                    onClick={() =>
-                      updateCartItem({
-                        itemId: _id,
-                        quantity: Math.max(quantity - 1, 1),
-                      })
-                    }
-                  >
-                    <MinusIcon className="h-6 w-6" />
-                  </button>
-                  <input
-                    type="text"
-                    pattern="\d+"
-                    className="h-8 w-14 border-0 p-1 pb-0 text-center placeholder:font-bold placeholder:opacity-100 dark:bg-inherit dark:text-slate-100"
-                    onBlur={handleBlur}
-                    onChange={handleChange}
-                    value={currentQuantity}
-                  />
-                  <button
-                    className="rounded-md border border-slate-300 text-left text-base font-medium text-slate-700 shadow-sm focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-500 dark:text-slate-200 dark:shadow-white sm:text-sm"
-                    aria-label="Decrease cart item"
-                    type="button"
-                    onClick={() =>
-                      updateCartItem({
-                        itemId: _id,
-                        quantity: quantity + 1,
-                      })
-                    }
-                  >
-                    <PlusIcon className="h-6 w-6" />
-                  </button>
-                </div>
-              </div>
-            ) : (
-              <span>{quantity}</span>
+          <div className="flex">
+            {enableUpdate && (
+              <button
+                type="button"
+                className="font-medium text-olivebrown hover:text-olivebrown-dark"
+                onClick={() => removeCartItem({ itemId: _id })}
+              >
+                {formatMessage({ id: "remove", defaultMessage: "Remove" })}
+              </button>
             )}
           </div>
         </div>
       </div>
-    </li>
+    </div>
   );
 };
 

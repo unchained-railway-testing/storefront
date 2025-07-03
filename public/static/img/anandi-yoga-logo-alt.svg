@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100" fill="none">
+  <!-- Mandala/Lotus Symbol -->
+  <g transform="translate(50, 50)">
+    <!-- Outer lotus petals -->
+    <g opacity="0.8">
+      <!-- Top petal -->
+      <ellipse cx="0" cy="-20" rx="8" ry="20" fill="#e5d8ae" transform="rotate(0 0 0)"/>
+      <!-- Top-right petal -->
+      <ellipse cx="0" cy="-20" rx="8" ry="20" fill="#e5d8ae" transform="rotate(45 0 0)"/>
+      <!-- Right petal -->
+      <ellipse cx="0" cy="-20" rx="8" ry="20" fill="#e5d8ae" transform="rotate(90 0 0)"/>
+      <!-- Bottom-right petal -->
+      <ellipse cx="0" cy="-20" rx="8" ry="20" fill="#e5d8ae" transform="rotate(135 0 0)"/>
+      <!-- Bottom petal -->
+      <ellipse cx="0" cy="-20" rx="8" ry="20" fill="#e5d8ae" transform="rotate(180 0 0)"/>
+      <!-- Bottom-left petal -->
+      <ellipse cx="0" cy="-20" rx="8" ry="20" fill="#e5d8ae" transform="rotate(225 0 0)"/>
+      <!-- Left petal -->
+      <ellipse cx="0" cy="-20" rx="8" ry="20" fill="#e5d8ae" transform="rotate(270 0 0)"/>
+      <!-- Top-left petal -->
+      <ellipse cx="0" cy="-20" rx="8" ry="20" fill="#e5d8ae" transform="rotate(315 0 0)"/>
+    </g>
+    
+    <!-- Inner lotus petals -->
+    <g opacity="0.9">
+      <ellipse cx="0" cy="-12" rx="6" ry="15" fill="#d4b78f" transform="rotate(22.5 0 0)"/>
+      <ellipse cx="0" cy="-12" rx="6" ry="15" fill="#d4b78f" transform="rotate(67.5 0 0)"/>
+      <ellipse cx="0" cy="-12" rx="6" ry="15" fill="#d4b78f" transform="rotate(112.5 0 0)"/>
+      <ellipse cx="0" cy="-12" rx="6" ry="15" fill="#d4b78f" transform="rotate(157.5 0 0)"/>
+      <ellipse cx="0" cy="-12" rx="6" ry="15" fill="#d4b78f" transform="rotate(202.5 0 0)"/>
+      <ellipse cx="0" cy="-12" rx="6" ry="15" fill="#d4b78f" transform="rotate(247.5 0 0)"/>
+      <ellipse cx="0" cy="-12" rx="6" ry="15" fill="#d4b78f" transform="rotate(292.5 0 0)"/>
+      <ellipse cx="0" cy="-12" rx="6" ry="15" fill="#d4b78f" transform="rotate(337.5 0 0)"/>
+    </g>
+    
+    <!-- Center circle -->
+    <circle cx="0" cy="0" r="10" fill="#7f6f49"/>
+    
+    <!-- Om symbol hint (simplified) -->
+    <path d="M-4,-4 Q-2,-6 0,-4 Q2,-2 0,0 Q-2,2 -4,0 Q-6,-2 -4,-4" 
+          fill="none" stroke="#50462f" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="0" cy="3" r="1.5" fill="#50462f"/>
+  </g>
+  
+  <!-- Typography -->
+  <g transform="translate(100, 50)">
+    <!-- Main text -->
+    <text x="0" y="5" font-family="Georgia, 'Times New Roman', serif" font-size="36" fill="#50462f" font-weight="300">
+      Anandi
+    </text>
+    
+    <!-- Tagline -->
+    <text x="0" y="28" font-family="Arial, sans-serif" font-size="12" fill="#7f6f49" letter-spacing="3.5">
+      YOGA & WELLNESS
+    </text>
+  </g>
+  
+  <!-- Decorative elements -->
+  <path d="M100 65 L250 65" stroke="#d4b78f" stroke-width="0.5" opacity="0.5"/>
+</svg>

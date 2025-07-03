@@ -44,7 +44,7 @@ const Toggle = ({
 
         <span
           className={classNames(
-            " pointer-events-none relative inline-block h-3 w-3 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out",
+            " pointer-events-none relative inline-block h-3 w-3 transform rounded-full bg-beige shadow ring-0 transition duration-200 ease-in-out",
             {
               "translate-x-5": toggleState,
               "translate-x-0": !toggleState,

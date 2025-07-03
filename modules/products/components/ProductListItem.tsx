@@ -24,36 +24,29 @@ const ProductListItem = ({ product, disableBookmark = false }) => {
 
   return (
     <>
-      <div className="relative">
-        <div className="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg  text-slate-200 group-hover:opacity-75 dark:bg-slate-500">
-          <Link
-            href={`/product/${product?.texts?.slug}`}
-            className="h-full py-5 text-center"
-          >
-            {firstMediaUrl ? (
-              <Image
-                src={firstMediaUrl}
-                alt={product?.texts?.title}
-                layout="fill"
-                placeholder="blur"
-                blurDataURL="placeholder.png"
-                objectFit="cover"
-                className="h-full w-full"
-                loader={defaultNextImageLoader}
-              />
-            ) : (
-              <div className="relative h-full w-full">
-                <PhotoIcon className="absolute inset-0 h-full w-full  dark:text-slate-500" />
-              </div>
-            )}
-          </Link>
-        </div>
-      </div>
+      <Link
+        href={`/product/${product?.texts?.slug}`}
+        className="block"
+      >
+        {firstMediaUrl ? (
+          <img
+            src={firstMediaUrl}
+            alt={product?.texts?.title}
+            className="aspect-3/4 w-full bg-olivebrown-alt object-cover group-hover:opacity-75 sm:aspect-auto sm:h-96"
+          />
+        ) : (
+          <div className="aspect-3/4 w-full bg-olivebrown-alt flex items-center justify-center group-hover:opacity-75 sm:aspect-auto sm:h-96">
+            <PhotoIcon className="h-24 w-24 text-olivebrown-light" />
+          </div>
+        )}
+      </Link>
+      
       {!disableBookmark && (
         <button
           type="button"
-          className="bg-white absolute top-1 right-1 dark:text-white"
-          onClick={() =>
+          className="absolute top-2 right-2 rounded-full bg-beige p-2 shadow-md hover:bg-olivebrown-alt"
+          onClick={(e) => {
+            e.preventDefault();
             filteredBookmark
               ? removeBookmark({
                   bookmarkId: filteredBookmark?._id,
@@ -61,26 +54,34 @@ const ProductListItem = ({ product, disableBookmark = false }) => {
               : conditionalBookmarkProduct({
                   productId: product?._id,
                 })
-          }
+          }}
         >
           <BookmarkIcon
-            className={classNames("h-6 w-6", {
-              "text-purple-600 hover:text-purple-700 dark:text-yellow-500 dark:hover:text-yellow-700":
-                filteredBookmark,
-              "text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300":
-                !filteredBookmark,
+            className={classNames("h-5 w-5", {
+              "text-olivebrown-dark": filteredBookmark,
+              "text-olivebrown-light-2": !filteredBookmark,
             })}
           />
         </button>
       )}
 
-      <div className="pt-4 text-center">
-        <h3 className="text-sm font-medium text-slate-900 dark:text-white">
-          {product?.texts?.title}
+      <div className="flex flex-1 flex-col space-y-2 p-4">
+        <h3 className="text-sm font-medium text-olivebrown-darker">
+          <Link href={`/product/${product?.texts?.slug}`}>
+            <span aria-hidden="true" className="absolute inset-0" />
+            {product?.texts?.title}
+          </Link>
         </h3>
-        <span className="ml-1">
-          <FormattedPrice price={product?.simulatedPrice} />
-        </span>
+        {product?.texts?.description && (
+          <p className="text-sm text-olivebrown-dark line-clamp-2">
+            {product?.texts?.description}
+          </p>
+        )}
+        <div className="flex flex-1 flex-col justify-end">
+          <p className="text-base font-medium text-olivebrown-darker">
+            <FormattedPrice price={product?.simulatedPrice} />
+          </p>
+        </div>
       </div>
     </>
   );

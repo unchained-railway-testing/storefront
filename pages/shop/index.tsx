@@ -17,7 +17,7 @@ const Categories = () => {
           defaultMessage: "Product Categories",
         })}
       />
-      <div className="relative w-full bg-white dark:bg-slate-600">
+      <div className="relative w-full bg-beige dark:bg-slate-600">
         {loading ? (
           <Loading />
         ) : (

@@ -38,45 +38,47 @@ const CheckoutContact = ({ cart, isInitial }) => {
   const toggleEditMode = () => setEditMode(!editMode);
 
   return (
-    <div className="mt-6">
-      <h2 className="text-lg font-medium ">
+    <div className="mt-10 border-b border-olivebrown-light-2 pb-10">
+      <h2 className="text-lg font-medium text-olivebrown-darker">
         {formatMessage({
-          id: "contact-info",
-          defaultMessage: "Contact info",
+          id: "contact_information",
+          defaultMessage: "Contact information",
         })}
       </h2>
       {showLogin && editMode && (
-        <div className="text-red-500">
-          {formatMessage({
-            id: "email-not-available",
-            defaultMessage: "E-Mail address is not available, please",
-          })}
-          <Link
-            href="/login"
-            className="inline-flex  items-center justify-center text-center text-sm font-medium leading-4 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-800 text-red-700 hover:text-red-500"
-          >
-            <span className="ml-2">
+        <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-lg">
+          <p className="text-red-600 text-sm">
+            {formatMessage({
+              id: "email-not-available",
+              defaultMessage: "E-Mail address is not available, please",
+            })}{" "}
+            <Link
+              href="/login"
+              className="font-medium text-red-700 hover:text-red-500 underline"
+            >
               {formatMessage({
                 id: "sign-in",
                 defaultMessage: "Sign in",
               })}
-            </span>
-          </Link>{" "}
-          {formatMessage({
-            id: "or-choose-another",
-            defaultMessage: "or choose another one",
-          })}
+            </Link>{" "}
+            {formatMessage({
+              id: "or-choose-another",
+              defaultMessage: "or choose another one",
+            })}
+          </p>
         </div>
       )}
-      {editMode ? (
-        <ContactForm
-          contact={contact}
-          onSubmit={updateContact}
-          onCancel={toggleEditMode}
-        />
-      ) : (
-        <ContactPanel contact={contact} onEdit={toggleEditMode} />
-      )}
+      <div className="mt-4">
+        {editMode ? (
+          <ContactForm
+            contact={contact}
+            onSubmit={updateContact}
+            onCancel={toggleEditMode}
+          />
+        ) : (
+          <ContactPanel contact={contact} onEdit={toggleEditMode} />
+        )}
+      </div>
     </div>
   );
 };

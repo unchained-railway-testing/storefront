@@ -32,26 +32,14 @@ const Header = () => {
     router.events.on("routeChangeStart", () => setNavOpen(false));
   }
   return (
-    <header className="sticky top-0 z-[1020] overflow-visible bg-white text-black opacity-100 dark:bg-slate-600 dark:text-white print:hidden">
+    <header className="sticky top-0 z-[1020] overflow-visible bg-quaternary text-black opacity-100 dark:bg-slate-600 dark:text-white print:hidden">
       <div className="relative">
         <SideCart isOpen={isCartOpen} />
         <div className="container relative mx-auto hidden w-full sm:flex sm:flex-wrap sm:items-center sm:justify-between sm:py-2">
           <div className="flex items-center justify-start">
             <DesktopNavigation />
-            <Link href="/" className="relative ml-4 h-10 w-36 rounded">
-              <Image
-                src={theme.assets.logo}
-                alt={formatMessage({
-                  id: "shop_logo",
-                  defaultMessage: "Shop logo",
-                })}
-                fill
-                style={{ objectFit: "contain", objectPosition: "left" }}
-                placeholder="blur"
-                blurDataURL="/placeholder.png"
-                className="rounded"
-                loader={defaultNextImageLoader}
-              />
+            <Link href="/" className="ml-4 flex items-center">
+              <span className="text-xl font-semibold text-gray-900">anandi yoga shop</span>
             </Link>
           </div>
           <div className="mr-10 flex">
@@ -74,20 +62,8 @@ const Header = () => {
               doClose={() => setNavOpen(false)}
             />
 
-            <Link href="/" className="relative h-7 w-24 rounded">
-              <Image
-                src={theme.assets.logo}
-                alt={formatMessage({
-                  id: "shop_logo_mobile",
-                  defaultMessage: "Shop logo",
-                })}
-                fill
-                style={{ objectFit: "contain", objectPosition: "left" }}
-                placeholder="blur"
-                blurDataURL="/placeholder.png"
-                className="rounded"
-                loader={defaultNextImageLoader}
-              />
+            <Link href="/" className="flex items-center">
+              <span className="text-lg font-semibold text-gray-900">anandi yoga shop</span>
             </Link>
           </div>
 

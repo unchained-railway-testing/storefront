@@ -60,7 +60,7 @@ const OrderDetail = ({ order }) => {
           <OrderDetailBilling order={order} />
         </div>
 
-        <div className="lg:col-span-2 bg-white dark:bg-slate-800 p-4 shadow dark:shadow-none rounded-md">
+        <div className="lg:col-span-2 bg-beige dark:bg-slate-800 p-4 shadow dark:shadow-none rounded-md">
           <StatusProgress
             data={order}
             statusTypes={orderStatusType}

@@ -72,7 +72,7 @@ const MetamaskButton = ({ onClick }) => (
     style={{ backgroundColor: "#f6851a" }}
     className="inline-flex items-center rounded-md border border-transparent px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2"
   >
-    <span className="mr-2 rounded-full p-1.5 bg-white d-flex items-center justify-center">
+    <span className="mr-2 rounded-full p-1.5 bg-beige d-flex items-center justify-center">
       <svg
         className="h-4 w-4"
         xmlns="http://www.w3.org/2000/svg"
@@ -226,8 +226,8 @@ const CryptopayCheckoutButton = ({ order }) => {
             <div className="fixed inset-0 bg-slate-500 bg-opacity-75 transition-opacity" />
             <div className="fixed inset-0 z-10 overflow-y-auto">
               <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-                <div className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-fit">
-                  <div className="bg-white px-4 pt-5 pb-4 sm:p-10 sm:pb-4">
+                <div className="relative transform overflow-hidden rounded-lg bg-beige text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-fit">
+                  <div className="bg-beige px-4 pt-5 pb-4 sm:p-10 sm:pb-4">
                     <div className="flex items-center justify-center flex-col">
                       {isMetamaskAvailable && (
                         <>
@@ -249,7 +249,7 @@ const CryptopayCheckoutButton = ({ order }) => {
                               <div className="w-full border-t border-slate-300" />
                             </div>
                             <div className="relative flex justify-center">
-                              <span className="bg-white px-2 text-sm text-slate-500">
+                              <span className="bg-beige px-2 text-sm text-slate-500">
                                 or
                               </span>
                             </div>
@@ -274,7 +274,7 @@ const CryptopayCheckoutButton = ({ order }) => {
                           <div className="w-full border-t border-slate-300" />
                         </div>
                         <div className="relative flex justify-center">
-                          <span className="bg-white px-2 text-sm text-slate-500">
+                          <span className="bg-beige px-2 text-sm text-slate-500">
                             or
                           </span>
                         </div>
@@ -305,7 +305,7 @@ const CryptopayCheckoutButton = ({ order }) => {
                       <button
                         onClick={cancel}
                         type="button"
-                        className="inline-flex items-center rounded border border-slate-300 bg-white px-2.5 py-1.5 text-xs font-medium text-brown-600 shadow-sm hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-red-800 focus:ring-offset-2"
+                        className="inline-flex items-center rounded border border-slate-300 bg-beige px-2.5 py-1.5 text-xs font-medium text-brown-600 shadow-sm hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-red-800 focus:ring-offset-2"
                       >
                         Cancel
                       </button>

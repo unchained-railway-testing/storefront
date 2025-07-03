@@ -15,12 +15,11 @@ const TextField = ({ ...props }) => {
     <FieldWrapper {...props} error={error}>
       <input
         className={classnames(
-          "relative mt-1 block w-full dark:focus:autofill dark:hover:autofill dark:autofill dark:placeholder:text-white dark:bg-slate-900 dark:text-slate-200 appearance-none rounded-md border-2  dark:border-slate-700 px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 shadow-sm placeholder:text-slate-400 focus:border-slate-400 focus:outline-none focus:ring-1 focus:ring-slate-400",
+          "block w-full rounded-md bg-beige px-3 py-2 text-base text-olivebrown-darker outline-1 -outline-offset-1 outline-olivebrown-light-2 placeholder:text-olivebrown-light focus:outline-2 focus:-outline-offset-2 focus:outline-olivebrown sm:text-sm/6",
           props.className,
           {
-            "border-2 border-color-danger-600 placeholder:text-red-300":
-              !!props.error,
-            "border-slate-200": ![error],
+            "outline-red-600 focus:outline-red-600": !!error,
+            "outline-olivebrown-light-2 focus:outline-olivebrown": !error,
           },
         )}
         disabled={props.disabled}

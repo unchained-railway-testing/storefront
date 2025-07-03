@@ -36,7 +36,7 @@ const MegaDropdown = ({ dataInHoverPath, ...rest }) => {
 
   return (
     <div
-      className="nav--main__mega rounded-md bg-white dark:bg-slate-500"
+      className="nav--main__mega rounded-md bg-beige dark:bg-slate-500"
       onMouseEnter={() => {
         if (!isTouching) setHoverPath(rest?.path);
       }}

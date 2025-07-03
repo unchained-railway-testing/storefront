@@ -22,44 +22,48 @@ const ContactForm = ({ contact, onSubmit, onCancel }) => {
   const isDisabled = !emailAddress && !isSubscribed;
   return (
     <form onSubmit={submitHandler}>
-      <div className="mb-3">
+      <div className="mb-4">
         <label
           htmlFor="emailAddress"
-          className="mb-2 block text-left text-sm font-medium text-slate-700 dark:text-slate-400"
+          className="block text-sm/6 font-medium text-olivebrown-dark"
         >
           {formatMessage({
             id: "email-address",
             defaultMessage: "Email Address",
           })}
+        </label>
+        <div className="mt-2">
           <input
             type="email"
             value={emailAddress}
             onChange={(e) => setEmailAddress(e.target.value)}
             required={!emailSupportDisabled || !isSubscribed}
-            className="relative mt-1 block w-full dark:focus:autofill dark:hover:autofill dark:autofill dark:placeholder:text-white dark:bg-slate-900 dark:text-slate-200 appearance-none rounded-md border-2  dark:border-slate-700 px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 shadow-sm placeholder:text-slate-400 focus:border-slate-400 focus:outline-none focus:ring-1 focus:ring-slate-400"
+            className="block w-full rounded-md bg-beige px-3 py-2 text-base text-olivebrown-darker outline-1 -outline-offset-1 outline-olivebrown-light-2 placeholder:text-olivebrown-light focus:outline-2 focus:-outline-offset-2 focus:outline-olivebrown sm:text-sm/6"
             name="emailAddress"
             id="emailAddress"
           />
-        </label>
+        </div>
       </div>
-      <div className="mb-3">
+      <div className="mb-4">
         <label
           htmlFor="telNumber"
-          className="mb-2 block text-left text-sm font-medium text-slate-700 dark:text-slate-400"
+          className="block text-sm/6 font-medium text-olivebrown-dark"
         >
           {formatMessage({
             id: "telNumber",
             defaultMessage: "Mobile Phone",
           })}
+        </label>
+        <div className="mt-2">
           <input
             type="tel"
             value={telNumber}
             id="telNumber"
             name="telNumber"
             onChange={(e) => setTelNumber(e.target.value)}
-            className="relative mt-1 block w-full dark:focus:autofill dark:hover:autofill dark:autofill dark:placeholder:text-white dark:bg-slate-900 dark:text-slate-200 appearance-none rounded-md border-2  dark:border-slate-700 px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 shadow-sm placeholder:text-slate-400 focus:border-slate-400 focus:outline-none focus:ring-1 focus:ring-slate-400"
+            className="block w-full rounded-md bg-beige px-3 py-2 text-base text-olivebrown-darker outline-1 -outline-offset-1 outline-olivebrown-light-2 placeholder:text-olivebrown-light focus:outline-2 focus:-outline-offset-2 focus:outline-olivebrown sm:text-sm/6"
           />
-        </label>
+        </div>
       </div>
       <Toggle
         className=""
@@ -75,35 +79,31 @@ const ContactForm = ({ contact, onSubmit, onCancel }) => {
         active={isSubscribed}
       />
 
-      <div className="pt-3">
-        <div className="mt-4">
-          <input
-            type="submit"
-            id="submit"
-            disabled={isDisabled}
-            name="submit"
-            value={formatMessage({
-              id: "save_contact",
-              defaultMessage: "Save Contact Data",
-            })}
-            className={classNames(
-              "flex w-full justify-center rounded-md border border-transparent  py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-800 focus:ring-offset-2",
-              {
-                "bg-slate-400": isDisabled,
-                "bg-slate-800": !isDisabled,
-              },
-            )}
-          />
-        </div>
+      <div className="mt-6 flex gap-4">
+        <input
+          type="submit"
+          id="submit"
+          disabled={isDisabled}
+          name="submit"
+          value={formatMessage({
+            id: "save_contact",
+            defaultMessage: "Save Contact Data",
+          })}
+          className={classNames(
+            "flex-1 rounded-md border border-transparent py-2 px-4 text-sm font-medium text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-olivebrown-light focus:ring-offset-2",
+            {
+              "bg-olivebrown-light cursor-not-allowed": isDisabled,
+              "bg-olivebrown hover:bg-olivebrown-dark": !isDisabled,
+            },
+          )}
+        />
         <Button
           text={formatMessage({
             id: "cancel",
             defaultMessage: "Cancel",
           })}
           type="button"
-          className={classNames(
-            "inline-flex justify-center mt-2 mr-1 rounded-md border border-transparent py-2 px-4 text-sm font-medium  bg-black slate-800 shadow-sm hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-200 focus:ring-offset-2",
-          )}
+          className="bg-beige-alt text-olivebrown-dark border border-olivebrown-light hover:bg-olivebrown-alt rounded-md py-2 px-4 text-sm font-medium"
           onClick={onCancel}
         />
       </div>

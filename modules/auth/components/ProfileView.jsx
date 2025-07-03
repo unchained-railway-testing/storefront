@@ -59,7 +59,7 @@ const ProfileView = ({ user }) => {
     >
       <Form onSubmit={onSubmit}>
         <div className="shadow sm:overflow-hidden sm:rounded-md">
-          <div className="bg-white py-6 px-4 dark:bg-slate-500 dark:text-slate-200 sm:p-6">
+          <div className="bg-beige py-6 px-4 dark:bg-slate-500 dark:text-slate-200 sm:p-6">
             <div className="divide-y divide-slate-200">
               <div className="space-y-1">
                 <h3 className="text-lg font-medium leading-6 text-slate-900 dark:text-slate-100">
@@ -138,7 +138,7 @@ const ProfileView = ({ user }) => {
                     defaultMessage: "Cancel",
                   })}
                   onClick={onProfileUpdateComplete}
-                  className=" bg-white sm:text-black text-black hover:bg-slate-200"
+                  className=" bg-beige sm:text-black text-black hover:bg-slate-200"
                 />
                 <SubmitButton>
                   {formatMessage({

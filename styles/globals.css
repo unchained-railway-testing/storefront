@@ -3,6 +3,47 @@
 @tailwind utilities;
 @import '~react-image-gallery/styles/css/image-gallery.css';
 
+/* Anandi Yoga Color Scheme */
+:root {
+  --color-brand: #d4b78f;
+  --color-brand-darker: #50462f;
+  --color-brand-lightest: #f8f0d5;
+  --color-brand-light: #efdeb7;
+  --border-radius: 0.25rem;
+}
+
+/* Apply Anandi background colors */
+body {
+  background-color: #f8f0d5; /* Anandi beige */
+  color: #50462f; /* Anandi olivebrown-darker for text */
+}
+
+/* Anandi background utility classes */
+.bg-anandi-beige {
+  background-color: #f8f0d5;
+}
+
+.bg-anandi-beige-alt {
+  background-color: #eee5c4;
+}
+
+.bg-anandi-olivebrown {
+  background-color: #d4b78f;
+}
+
+.bg-anandi-olivebrown-alt {
+  background-color: #f6eedb;
+}
+
+.bg-anandi-quaternary {
+  background-color: #e5d8ae;
+}
+
+.bg-anandi-blur {
+  background-color: rgba(248, 240, 213, 0.6);
+  backdrop-filter: blur(4px);
+}
+
 .isOpen {
   right: 0 !important;
 }
@@ -17,6 +58,7 @@
   overflow: hidden;
   box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.15);
   transition-delay: 150ms;
+  background-color: #eee5c4; /* Anandi beige-alt */
 }
 
 .nav--main__item[data-in-hover-path='true'] + .nav--main__mega {
@@ -113,6 +155,7 @@
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.15);
+  background-color: #f6eedb; /* Anandi olivebrown-alt */
 }
 
 .mobile-menu-close {

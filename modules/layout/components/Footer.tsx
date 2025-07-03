@@ -23,7 +23,7 @@ const Footer = () => {
   return (
     <footer
       aria-labelledby="footer-heading"
-      className="container mx-auto bg-white dark:bg-slate-600 print:hidden"
+      className="container mx-auto bg-beige dark:bg-slate-600 print:hidden"
     >
       <h2 id="footer-heading" className="sr-only">
         {formatMessage({ id: "footer", defaultMessage: "Footer" })}
@@ -48,7 +48,7 @@ const Footer = () => {
               <div className="grid grid-cols-2 gap-8 xl:col-span-2">
                 <div className="space-y-12 md:grid md:grid-cols-2 md:gap-8 md:space-y-0">
                   <div>
-                    <h3 className="text-lg font-medium text-slate-900 dark:text-slate-50">
+                    <h3 className="text-lg font-medium text-olivebrown-darker">
                       {formatMessage({
                         id: "company",
                         defaultMessage: "Company",
@@ -59,7 +59,7 @@ const Footer = () => {
                         <li key={item.name} className="text-base">
                           <Link
                             href={item.href}
-                            className="text-slate-400 hover:text-slate-500 dark:text-slate-300 dark:hover:text-slate-200"
+                            className="text-olivebrown-dark hover:text-olivebrown-darker"
                           >
                             {item.name}
                           </Link>
@@ -68,7 +68,7 @@ const Footer = () => {
                     </ul>
                   </div>
                   <div>
-                    <h3 className="text-lg font-medium text-slate-900 dark:text-slate-50">
+                    <h3 className="text-lg font-medium text-olivebrown-darker">
                       {formatMessage({ id: "legal", defaultMessage: "Legal" })}
                     </h3>
                     <ul className="mt-6 space-y-6">
@@ -76,7 +76,7 @@ const Footer = () => {
                         <li key={item.name} className="text-sm">
                           <Link
                             href={item.href}
-                            className="text-slate-400 hover:text-slate-500 dark:text-slate-300 dark:hover:text-slate-200"
+                            className="text-olivebrown-dark hover:text-olivebrown-darker"
                           >
                             {item.name}
                           </Link>
@@ -92,7 +92,7 @@ const Footer = () => {
 
         <div className="py-10  md:flex md:items-center md:justify-between">
           <div className="text-center md:text-left">
-            <p className="text-base text-slate-400 dark:text-slate-200">
+            <p className="text-base text-olivebrown-dark">
               <span>&copy;</span>
               <span className="mx-2">{new Date().getFullYear()}</span>
               <span>
@@ -110,7 +110,7 @@ const Footer = () => {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-slate-400 hover:text-slate-500 dark:text-slate-300 dark:hover:text-slate-200"
+                  className="text-olivebrown-dark hover:text-olivebrown-darker"
                 >
                   {item.name}
                 </Link>
@@ -118,7 +118,7 @@ const Footer = () => {
             </div>
 
             <div className="ml-6 border-gray-200 pl-6">
-              <div className="flex items-center text-base text-slate-400 hover:text-slate-500 dark:text-slate-300 dark:hover:text-slate-200">
+              <div className="flex items-center text-base text-olivebrown-dark hover:text-olivebrown-darker">
                 <LanguageSwitch />
               </div>
             </div>

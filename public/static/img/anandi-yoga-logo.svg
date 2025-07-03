@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 80" fill="none">
+  <!-- Lotus flower symbol -->
+  <g transform="translate(20, 40)">
+    <!-- Outer petals -->
+    <path d="M20 0C20 0 10 10 10 20C10 30 20 40 20 40C20 40 30 30 30 20C30 10 20 0 20 0Z" fill="#d4b78f" opacity="0.7"/>
+    <path d="M20 0C20 0 10 10 0 10C-10 10 -20 0 -20 0C-20 0 -10 10 0 20C10 30 20 40 20 40C20 40 10 30 0 20C-10 10 -20 0 -20 0" fill="#e5d8ae" opacity="0.6" transform="rotate(-45 20 20)"/>
+    <path d="M20 0C20 0 30 10 40 10C50 10 60 0 60 0C60 0 50 10 40 20C30 30 20 40 20 40C20 40 30 30 40 20C50 10 60 0 60 0" fill="#e5d8ae" opacity="0.6" transform="rotate(45 20 20)"/>
+    
+    <!-- Center circle -->
+    <circle cx="20" cy="20" r="8" fill="#7f6f49"/>
+    
+    <!-- Inner detail -->
+    <circle cx="20" cy="20" r="4" fill="#50462f"/>
+  </g>
+  
+  <!-- Main text "Anandi" -->
+  <text x="75" y="45" font-family="Optima, Candara, 'Noto Sans', sans-serif" font-size="32" fill="#50462f" font-weight="400" letter-spacing="1">Anandi</text>
+  
+  <!-- Subtext "YOGA" -->
+  <text x="75" y="65" font-family="Avenir, Montserrat, sans-serif" font-size="14" fill="#7f6f49" font-weight="300" letter-spacing="4">YOGA STUDIO</text>
+  
+  <!-- Decorative line -->
+  <line x1="75" y1="52" x2="220" y2="52" stroke="#d4b78f" stroke-width="0.5" opacity="0.6"/>
+</svg>

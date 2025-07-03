@@ -15,12 +15,10 @@ const SelectField = ({ ...props }) => {
     <FieldWrapper {...props} error={error}>
       <select
         className={classNames(
-          "mt-1 block w-full appearance-none rounded-md border focus:outline-none px-3 py-2 text-slate-900 placeholder-slate-400 shadow-sm dark:bg-slate-300 sm:text-sm",
+          "block w-full appearance-none rounded-md bg-beige py-2 pr-8 pl-3 text-base text-olivebrown-darker outline-1 -outline-offset-1 outline-olivebrown-light-2 focus:outline-2 focus:-outline-offset-2 focus:outline-olivebrown sm:text-sm/6",
           {
-            "border-slate-300 focus:border-slate-900 focus:ring-slate-900":
-              !props.error,
-            "border-red-300 focus:border-red-500 focus:ring-red-500":
-              props.error,
+            "outline-olivebrown-light-2 focus:outline-olivebrown": !error,
+            "outline-red-600 focus:outline-red-600": !!error,
           },
         )}
         disabled={props.disabled}

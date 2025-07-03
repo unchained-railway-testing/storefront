@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" fill="none">
+  <!-- Minimalist lotus icon -->
+  <g transform="translate(15, 30)">
+    <!-- Three petals forming a lotus -->
+    <path d="M15 5 Q10 0 5 5 Q0 10 5 15 Q10 20 15 15 Q20 10 15 5Z" fill="#d4b78f"/>
+    <path d="M15 5 Q20 0 25 5 Q30 10 25 15 Q20 20 15 15" fill="#e5d8ae"/>
+    <path d="M15 15 Q10 20 15 25 Q20 20 15 15" fill="#7f6f49"/>
+  </g>
+  
+  <!-- Clean typography -->
+  <text x="55" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" fill="#50462f" font-weight="300">anandi</text>
+  <text x="55" y="52" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" fill="#7f6f49" font-weight="400" letter-spacing="2.5">YOGA STUDIO</text>
+</svg>

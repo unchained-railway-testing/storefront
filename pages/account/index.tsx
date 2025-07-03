@@ -62,7 +62,7 @@ const Account = () => {
                   className={classNames(
                     "group flex items-center rounded-md px-3 py-2 text-sm font-medium text-slate-900 hover:bg-slate-50 hover:text-slate-400 dark:bg-slate-600 dark:text-white dark:hover:text-slate-400",
                     {
-                      "bg-slate-50 text-slate-600 hover:bg-white dark:bg-slate-500 dark:text-slate-400":
+                      "bg-slate-50 text-slate-600 hover:bg-beige dark:bg-slate-500 dark:text-slate-400":
                         item.name.toLowerCase() ===
                         (router.asPath.includes("#")
                           ? router.asPath.split("#")[1]
@@ -102,7 +102,7 @@ const Account = () => {
             aria-labelledby="password"
             className="lg:col-span-9 lg:col-start-4"
           >
-            <div className="mt-6 bg-white pt-6 shadow dark:bg-slate-500 sm:overflow-hidden sm:rounded-md">
+            <div className="mt-6 bg-beige pt-6 shadow dark:bg-slate-500 sm:overflow-hidden sm:rounded-md">
               <div className="px-4 sm:px-6">
                 <h2
                   id="password"

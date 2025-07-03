@@ -4,7 +4,7 @@ import { useIntl } from "react-intl";
 const AssortmentBreadcrumbs = ({ paths = [], currentAssortment }) => {
   const intl = useIntl();
   return (
-    <nav className="mt-2 mb-4 border-bottom pb-3">
+    <nav className="mt-10 mb-5 border-bottom pb-3">
       <Link className="mr-2 breadcrumb-link" href="/">
         {intl.formatMessage({ id: "home", defaultMessage: "Home" })}
       </Link>

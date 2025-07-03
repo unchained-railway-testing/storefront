@@ -9,15 +9,28 @@ const tailwindConfig = {
   theme: {
     extend: {
       colors: {
-        "dark-gray": "#495057",
-        "color-light-dark": "#454545",
-        "light-black": "#ced4da",
-        "light-blue": "#80bdff",
-        "color-brand": "#232323",
-        "color-brand-lightest": "#e7e7e7",
-        "color-brand-darker": "#121212",
-        "color-dark": "#232323",
-        "color-grey-lightest": "#ececec",
+        // Anandi yoga color scheme
+        "beige": "#f8f0d5",
+        "beige-alt": "#eee5c4",
+        "olivebrown": "#d4b78f",
+        "olivebrown-alt": "#f6eedb",
+        "quaternary": "#e5d8ae",
+        "withblur": "rgba(248, 240, 213, 0.6)",
+        "olivebrown-light": "#efdeb7",
+        "olivebrown-light-2": "#e1d1ab",
+        "olivebrown-dark": "#7f6f49",
+        "olivebrown-darker": "#50462f",
+        
+        // Map existing color names to Anandi colors
+        "dark-gray": "#7f6f49",
+        "color-light-dark": "#50462f",
+        "light-black": "#e1d1ab",
+        "light-blue": "#efdeb7",
+        "color-brand": "#d4b78f",
+        "color-brand-lightest": "#f8f0d5",
+        "color-brand-darker": "#50462f",
+        "color-dark": "#50462f",
+        "color-grey-lightest": "#f6eedb",
         "color-danger-100": "#FEE2E2",
         "color-danger-200": "#FECACA",
         "color-danger-600": "#DC2626",

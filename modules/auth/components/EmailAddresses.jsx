@@ -42,7 +42,7 @@ const EmailAddresses = ({ emails }) => {
       className="space-y-6 sm:px-6 lg:col-span-9 lg:col-start-4 lg:px-0"
       aria-labelledby="payment-details-heading"
     >
-      <div className="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:pt-5 bg-white">
+      <div className="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:pt-5 bg-beige">
         <h2 className="text-sm font-medium text-slate-500 dark:text-slate-200">
           {formatMessage({
             id: "email-addresses",

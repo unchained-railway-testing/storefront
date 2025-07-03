@@ -118,7 +118,7 @@ const MobileNavigation = ({ doClose, isNavOpen }) => {
       </button>
       <nav
         id="menu"
-        className="mobile-menu bg-white dark:bg-slate-600 dark:text-white"
+        className="mobile-menu bg-beige dark:bg-slate-600 dark:text-white"
       >
         <div className="relative">
           <button

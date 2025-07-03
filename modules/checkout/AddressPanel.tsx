@@ -25,15 +25,17 @@ const formatAddress = ({
 const AddressPanel = ({ address, onEdit }) => {
   const { formatMessage } = useIntl();
   return (
-    <div className="mt-4">
-      <div style={{ whiteSpace: "pre-wrap" }}>{formatAddress(address)}</div>
+    <div className="mt-4 p-4 bg-beige-alt rounded-lg border border-olivebrown-light-2">
+      <div className="text-olivebrown-darker whitespace-pre-wrap">
+        {formatAddress(address)}
+      </div>
       <Button
         text={formatMessage({
           id: "edit-address",
           defaultMessage: "Edit Address",
         })}
         type="button"
-        className="inline-flex justify-center mt-2 rounded-md border border-transparent bg-slate-800 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2"
+        className="mt-3 inline-flex justify-center rounded-md border border-transparent bg-olivebrown py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-olivebrown-dark focus:outline-none focus:ring-2 focus:ring-olivebrown-light focus:ring-offset-2"
         onClick={onEdit}
       />
     </div>

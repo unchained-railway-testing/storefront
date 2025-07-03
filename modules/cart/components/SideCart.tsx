@@ -1,7 +1,6 @@
 import Link from "next/link";
-
 import { useIntl } from "react-intl";
-import classNames from "classnames";
+import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react';
 import { ShoppingBagIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import useUser from "../../auth/hooks/useUser";
 import CartItem from "./CartItem";
@@ -11,126 +10,142 @@ import FormattedPrice from "../../common/components/FormattedPrice";
 const SideCart = ({ isOpen }) => {
   const { user } = useUser();
   const intl = useIntl();
-  const { isCartOpen, toggleCart } = useAppContext();
+  const { toggleCart } = useAppContext();
+
+  const cartItems = user?.cart?.items || [];
+  const isEmpty = cartItems.length === 0;
 
   return (
-    <>
-      <div
-        className={classNames({
-          "fixed top-0 right-0 bottom-0 left-0 z-50 cursor-pointer bg-black opacity-0":
-            isOpen,
-        })}
-        onClick={() => toggleCart(false)}
+    <Dialog open={isOpen} onClose={() => toggleCart(false)} className="relative z-50">
+      <DialogBackdrop
+        transition
+        className="fixed inset-0 bg-olivebrown-darker/75 transition-opacity duration-500 ease-in-out data-closed:opacity-0"
       />
-      {!user?.cart?.items.length ? (
-        <div
-          className={classNames(
-            "fixed top-0 -right-80 z-50 flex h-full w-[300px] flex-col items-center justify-center overflow-y-auto bg-white py-3 px-2 text-center opacity-100 shadow-md transition dark:bg-slate-600 lg:-right-[450px] lg:w-[400px]",
-            {
-              "right-0 lg:right-0": isOpen,
-            },
-          )}
-        >
-          <ShoppingBagIcon className="h-6 w-6" />
-          <p>
-            {intl.formatMessage({
-              id: "no_product_in_cart",
-              defaultMessage: "There are no products in your Cart. Browse our",
-            })}{" "}
-            <Link
-              href="/shop"
-              onClick={() => toggleCart(false)}
-              className="cursor-pointer font-normal underline"
+
+      <div className="fixed inset-0 overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10 sm:pl-16">
+            <DialogPanel
+              transition
+              className="pointer-events-auto w-screen max-w-md transform transition duration-500 ease-in-out data-closed:translate-x-full sm:duration-700"
             >
-              {intl.formatMessage({ id: "shop", defaultMessage: "Shop" })}
-            </Link>
-          </p>
-        </div>
-      ) : (
-        <div
-          className={classNames(
-            "fixed top-0 -right-80 z-50 flex h-full w-[300px] flex-col overflow-y-auto bg-white  bg-opacity-100 px-1 shadow-md transition dark:bg-slate-600 dark:opacity-100 lg:-right-[450px] lg:w-[400px]",
-            {
-              "isOpen lg:right-0": isOpen,
-            },
-          )}
-        >
-          <div>
-            <div className="relative">
-              <button
-                aria-label={intl.formatMessage({
-                  id: "close",
-                  defaultMessage: "Close",
-                })}
-                type="button"
-                className="absolute cursor-pointer appearance-none p-2 text-left text-inherit opacity-100"
-                onClick={() => toggleCart(!isCartOpen)}
-              >
-                <XMarkIcon className="h-5 w-5" />
-              </button>
-            </div>
-            <h3 className="m-0 block p-4 text-center text-lg">
-              {intl.formatMessage({
-                id: "in_cart",
-                defaultMessage: "Cart",
-              })}
-            </h3>
-          </div>
-          <div className="px-2">
-            {user?.cart?.items.length === 0 ? (
-              <p>
-                {intl.formatMessage({
-                  id: "no_product_in_cart",
-                  defaultMessage:
-                    "There are no products in your Cart. Browse our",
-                })}{" "}
-                <Link
-                  href="/shop"
-                  onClick={() => toggleCart(false)}
-                  className="cursor-pointer font-normal underline"
-                >
-                  {intl.formatMessage({
-                    id: "shop",
-                    defaultMessage: "Shop",
-                  })}
-                  .
-                </Link>
-              </p>
-            ) : (
-              (user?.cart?.items || []).map((item) => (
-                <CartItem key={item._id} {...item} />
-              ))
-            )}
-          </div>
-          <div className="p-2 text-center text-slate-900 dark:text-slate-100">
-            <div className="my-0 mb-4 border-t border-b-0 border-solid py-4">
-              <div className="flex flex-wrap items-center justify-between">
-                <div className="mr-2">
-                  {intl.formatMessage({
-                    id: "subtotal",
-                    defaultMessage: "Subtotal",
-                  })}{" "}
+              <div className="flex h-full flex-col overflow-y-auto bg-beige shadow-xl">
+                <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
+                  <div className="flex items-start justify-between">
+                    <DialogTitle className="text-lg font-medium text-olivebrown-darker">
+                      {intl.formatMessage({
+                        id: "shopping_cart",
+                        defaultMessage: "Shopping cart",
+                      })}
+                    </DialogTitle>
+                    <div className="ml-3 flex h-7 items-center">
+                      <button
+                        type="button"
+                        onClick={() => toggleCart(false)}
+                        className="relative -m-2 p-2 text-olivebrown-light hover:text-olivebrown-dark"
+                      >
+                        <span className="absolute -inset-0.5" />
+                        <span className="sr-only">
+                          {intl.formatMessage({
+                            id: "close_panel",
+                            defaultMessage: "Close panel",
+                          })}
+                        </span>
+                        <XMarkIcon aria-hidden="true" className="size-6" />
+                      </button>
+                    </div>
+                  </div>
+
+                  {isEmpty ? (
+                    <div className="mt-8 flex flex-col items-center justify-center text-center">
+                      <ShoppingBagIcon className="h-12 w-12 text-olivebrown-light mb-4" />
+                      <p className="text-olivebrown-dark">
+                        {intl.formatMessage({
+                          id: "no_product_in_cart",
+                          defaultMessage: "There are no products in your Cart. Browse our",
+                        })}{" "}
+                        <Link
+                          href="/shop"
+                          onClick={() => toggleCart(false)}
+                          className="font-medium text-olivebrown hover:text-olivebrown-dark underline"
+                        >
+                          {intl.formatMessage({ id: "shop", defaultMessage: "Shop" })}
+                        </Link>
+                      </p>
+                    </div>
+                  ) : (
+                    <div className="mt-8">
+                      <div className="flow-root">
+                        <ul role="list" className="-my-6 divide-y divide-olivebrown-light-2">
+                          {cartItems.map((item) => (
+                            <li key={item._id} className="py-6">
+                              <CartItem {...item} />
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  )}
                 </div>
-                <div>
-                  <FormattedPrice price={user?.cart?.itemsTotal} />
-                </div>
+
+                {!isEmpty && (
+                  <div className="border-t border-olivebrown-light-2 px-4 py-6 sm:px-6">
+                    <div className="flex justify-between text-base font-medium text-olivebrown-darker">
+                      <p>
+                        {intl.formatMessage({
+                          id: "subtotal",
+                          defaultMessage: "Subtotal",
+                        })}
+                      </p>
+                      <p>
+                        <FormattedPrice price={user?.cart?.itemsTotal} />
+                      </p>
+                    </div>
+                    <p className="mt-0.5 text-sm text-olivebrown-dark">
+                      {intl.formatMessage({
+                        id: "shipping_taxes_calculated",
+                        defaultMessage: "Shipping and taxes calculated at checkout.",
+                      })}
+                    </p>
+                    <div className="mt-6">
+                      <Link
+                        href="/checkout"
+                        onClick={() => toggleCart(false)}
+                        className="flex items-center justify-center rounded-md border border-transparent bg-olivebrown px-6 py-3 text-base font-medium text-white shadow-xs hover:bg-olivebrown-dark"
+                      >
+                        {intl.formatMessage({
+                          id: "checkout",
+                          defaultMessage: "Checkout",
+                        })}
+                      </Link>
+                    </div>
+                    <div className="mt-6 flex justify-center text-center text-sm text-olivebrown-dark">
+                      <p>
+                        {intl.formatMessage({
+                          id: "or",
+                          defaultMessage: "or",
+                        })}{" "}
+                        <button
+                          type="button"
+                          onClick={() => toggleCart(false)}
+                          className="font-medium text-olivebrown hover:text-olivebrown-dark"
+                        >
+                          {intl.formatMessage({
+                            id: "continue_shopping",
+                            defaultMessage: "Continue Shopping",
+                          })}
+                          <span aria-hidden="true"> &rarr;</span>
+                        </button>
+                      </p>
+                    </div>
+                  </div>
+                )}
               </div>
-            </div>
-            <Link
-              href={{ pathname: "/checkout" }}
-              type="button"
-              className="mb-4 block w-full rounded-md border border-transparent bg-slate-600 py-2 px-4 text-base font-medium uppercase text-white shadow-sm hover:bg-slate-700 hover:text-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 focus:ring-offset-gray-50"
-              onClick={() => toggleCart(false)}
-            >
-              {intl.formatMessage({
-                id: "to_checkout",
-                defaultMessage: "To checkout",
-              })}
-            </Link>
+            </DialogPanel>
           </div>
         </div>
-      )}
-    </>
+      </div>
+    </Dialog>
   );
 };
 

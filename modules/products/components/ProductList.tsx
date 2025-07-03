@@ -8,17 +8,17 @@ const ProductList = ({ products, totalProducts, onLoadMore }) => {
   const { formatMessage } = useIntl();
 
   return (
-    <div className="mt-4 bg-white dark:bg-slate-600">
-      <div className="mx-auto max-w-full overflow-hidden ">
+    <div className="bg-beige">
+      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
         <h2 className="sr-only">
           {formatMessage({ id: "products", defaultMessage: "Products" })}
         </h2>
 
-        <div className="-mx-px grid rounded-lg border-l border-slate-200 dark:border-slate-500 sm:mx-0 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3 lg:gap-x-8">
           {products.map((product) => (
             <div
               key={product?._id}
-              className="group relative rounded-lg border-y border-r border-b border-slate-200 p-4 dark:border-slate-500 sm:p-6"
+              className="group relative flex flex-col overflow-hidden rounded-lg border border-olivebrown-light bg-beige-alt"
             >
               <ProductListItem product={product} />
             </div>

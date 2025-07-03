@@ -63,7 +63,7 @@ const Address = ({ user }) => {
       <div className="space-y-6 ">
         <Form onSubmit={onSubmit}>
           <div className="shadow sm:overflow-hidden sm:rounded-md">
-            <div className="bg-white py-6 px-4 dark:bg-slate-500 dark:text-slate-200 sm:p-6">
+            <div className="bg-beige py-6 px-4 dark:bg-slate-500 dark:text-slate-200 sm:p-6">
               <div>
                 <h1
                   id="address-heading"
@@ -257,7 +257,7 @@ const Address = ({ user }) => {
                       defaultMessage: "Cancel",
                     })}
                     onClick={onProfileUpdateComplete}
-                    className=" bg-white sm:text-black text-black hover:bg-slate-200"
+                    className=" bg-beige sm:text-black text-black hover:bg-slate-200"
                   />
                   <SubmitButton>
                     {formatMessage({
