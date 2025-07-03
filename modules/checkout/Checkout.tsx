@@ -129,24 +129,26 @@ const Checkout = () => {
       <div data-loading={loading}>
         <CheckoutAddresses cart={cart} isInitial={isAddressesMissing} />
         {!isAddressesMissing && (
-          <CheckoutContact
-            cart={cart}
-            isInitial={isContactDataMissing}
-          />
+          <CheckoutContact cart={cart} isInitial={isContactDataMissing} />
         )}
         {!isAddressesMissing && !isContactDataMissing && (
-          <CheckoutPaymentMethod
-            cart={cart}
-            disabled={isContactDataMissing}
-          />
+          <CheckoutPaymentMethod cart={cart} disabled={isContactDataMissing} />
         )}
-        
+
         {isContactDataMissing && !isSubscribed && (
           <div className="mt-10 bg-olivebrown-light-2 border border-olivebrown-light p-6 rounded-lg print:hidden">
             <div className="flex">
               <div className="flex-shrink-0">
-                <svg className="h-5 w-5 text-olivebrown-dark" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                <svg
+                  className="h-5 w-5 text-olivebrown-dark"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+                    clipRule="evenodd"
+                  />
                 </svg>
               </div>
               <div className="ml-3">
@@ -155,7 +157,8 @@ const Checkout = () => {
                 </h3>
                 <div className="mt-2 text-sm text-olivebrown-dark">
                   <p>
-                    Please provide a way for us to contact you about your order status.
+                    Please provide a way for us to contact you about your order
+                    status.
                   </p>
                 </div>
               </div>
@@ -163,11 +166,13 @@ const Checkout = () => {
           </div>
         )}
       </div>
-      
+
       {/* Order summary */}
       <div className="mt-10 lg:mt-0">
-        <h2 className="text-lg font-medium text-olivebrown-darker">Order summary</h2>
-        
+        <h2 className="text-lg font-medium text-olivebrown-darker">
+          Order summary
+        </h2>
+
         <div className="mt-4 bg-beige rounded-lg border border-olivebrown-light-2 shadow-sm">
           <div className="px-4 py-6 sm:px-6">
             <div className="flow-root">
@@ -178,12 +183,14 @@ const Checkout = () => {
                       {item.product.media?.[0]?.file?.url ? (
                         <img
                           src={item.product.media[0].file.url}
-                          alt={item.product.texts?.title || ''}
+                          alt={item.product.texts?.title || ""}
                           className="h-full w-full object-cover object-center"
                         />
                       ) : (
                         <div className="h-full w-full bg-olivebrown-light flex items-center justify-center">
-                          <span className="text-olivebrown-dark text-xs">No image</span>
+                          <span className="text-olivebrown-dark text-xs">
+                            No image
+                          </span>
                         </div>
                       )}
                     </div>
@@ -197,11 +204,15 @@ const Checkout = () => {
                           </p>
                         </div>
                         {item.product.texts?.subtitle && (
-                          <p className="mt-1 text-sm text-olivebrown-dark">{item.product.texts.subtitle}</p>
+                          <p className="mt-1 text-sm text-olivebrown-dark">
+                            {item.product.texts.subtitle}
+                          </p>
                         )}
                       </div>
                       <div className="flex flex-1 items-end justify-between text-sm">
-                        <p className="text-olivebrown-dark">Qty {item.quantity}</p>
+                        <p className="text-olivebrown-dark">
+                          Qty {item.quantity}
+                        </p>
                       </div>
                     </div>
                   </li>
@@ -209,7 +220,7 @@ const Checkout = () => {
               </ul>
             </div>
           </div>
-          
+
           <div className="border-t border-olivebrown-light-2 px-4 py-6 sm:px-6">
             <div className="flex justify-between text-base font-medium text-olivebrown-darker">
               <p>Subtotal</p>

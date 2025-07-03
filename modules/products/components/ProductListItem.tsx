@@ -24,10 +24,7 @@ const ProductListItem = ({ product, disableBookmark = false }) => {
 
   return (
     <>
-      <Link
-        href={`/product/${product?.texts?.slug}`}
-        className="block"
-      >
+      <Link href={`/product/${product?.texts?.slug}`} className="block">
         {firstMediaUrl ? (
           <img
             src={firstMediaUrl}
@@ -40,7 +37,7 @@ const ProductListItem = ({ product, disableBookmark = false }) => {
           </div>
         )}
       </Link>
-      
+
       {!disableBookmark && (
         <button
           type="button"
@@ -53,7 +50,7 @@ const ProductListItem = ({ product, disableBookmark = false }) => {
                 })
               : conditionalBookmarkProduct({
                   productId: product?._id,
-                })
+                });
           }}
         >
           <BookmarkIcon
@@ -68,7 +65,7 @@ const ProductListItem = ({ product, disableBookmark = false }) => {
       <div className="flex flex-1 flex-col space-y-2 p-4">
         <h3 className="text-sm font-medium text-olivebrown-darker">
           <Link href={`/product/${product?.texts?.slug}`}>
-            <span aria-hidden="true" className="absolute inset-0" />
+            <span aria-hidden="true" className="absolute inset-0 h-24" />
             {product?.texts?.title}
           </Link>
         </h3>

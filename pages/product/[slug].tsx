@@ -10,9 +10,9 @@ import {
   TabList,
   TabPanel,
   TabPanels,
-} from '@headlessui/react';
-import { StarIcon } from '@heroicons/react/20/solid';
-import { HeartIcon, MinusIcon, PlusIcon } from '@heroicons/react/24/outline';
+} from "@headlessui/react";
+import { StarIcon } from "@heroicons/react/20/solid";
+import { HeartIcon, MinusIcon, PlusIcon } from "@heroicons/react/24/outline";
 
 import Markdown from "react-markdown";
 import useProductDetail from "../../modules/products/hooks/useProductDetail";
@@ -30,7 +30,7 @@ import useRemoveBookmark from "../../modules/common/hooks/useRemoveBookmark";
 import useUser from "../../modules/auth/hooks/useUser";
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 const Detail = () => {
@@ -45,7 +45,7 @@ const Detail = () => {
 
   const productPath = getAssortmentPath(paths);
   const mediaUrls = product ? getMediaUrls(product) : [];
-  
+
   const [filteredBookmark] =
     user?.bookmarks?.filter(
       (bookmark) => bookmark?.product?._id === product?._id,
@@ -61,12 +61,17 @@ const Detail = () => {
       />
     );
 
-  const productDetails = product?.texts?.description ? [
-    {
-      name: intl.formatMessage({ id: "description", defaultMessage: "Description" }),
-      content: product?.texts?.description,
-    }
-  ] : [];
+  const productDetails = product?.texts?.description
+    ? [
+        {
+          name: intl.formatMessage({
+            id: "description",
+            defaultMessage: "Description",
+          }),
+          content: product?.texts?.description,
+        },
+      ]
+    : [];
 
   if (product?.texts?.subtitle) {
     productDetails.push({
@@ -91,7 +96,7 @@ const Detail = () => {
               paths={productPath}
               currentAssortment={product?.texts}
             />
-            
+
             <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8 mt-8">
               {/* Image gallery */}
               <TabGroup className="flex flex-col-reverse">
@@ -104,9 +109,15 @@ const Detail = () => {
                           key={idx}
                           className="group relative flex h-24 cursor-pointer items-center justify-center rounded-md bg-beige-alt text-sm font-medium text-olivebrown-darker uppercase hover:bg-olivebrown-alt focus:ring-3 focus:ring-olivebrown/50 focus:ring-offset-4 focus:outline-hidden"
                         >
-                          <span className="sr-only">{product?.texts?.title} {idx + 1}</span>
+                          <span className="sr-only">
+                            {product?.texts?.title} {idx + 1}
+                          </span>
                           <span className="absolute inset-0 overflow-hidden rounded-md">
-                            <img alt="" src={image} className="size-full object-cover" />
+                            <img
+                              alt=""
+                              src={image}
+                              className="size-full object-cover"
+                            />
                           </span>
                           <span
                             aria-hidden="true"
@@ -119,20 +130,22 @@ const Detail = () => {
                 )}
 
                 <TabPanels>
-                  {mediaUrls.length > 0 ? mediaUrls.map((image, idx) => (
-                    <TabPanel key={idx}>
-                      <img 
-                        alt={product?.texts?.title} 
-                        src={image} 
-                        className="aspect-square w-full object-cover sm:rounded-lg" 
-                      />
-                    </TabPanel>
-                  )) : (
+                  {mediaUrls.length > 0 ? (
+                    mediaUrls.map((image, idx) => (
+                      <TabPanel key={idx}>
+                        <img
+                          alt={product?.texts?.title}
+                          src={image}
+                          className="aspect-square w-full object-cover sm:rounded-lg"
+                        />
+                      </TabPanel>
+                    ))
+                  ) : (
                     <TabPanel>
-                      <img 
-                        alt={product?.texts?.title} 
-                        src="/static/img/sun-glass-placeholder.jpeg" 
-                        className="aspect-square w-full object-cover sm:rounded-lg" 
+                      <img
+                        alt={product?.texts?.title}
+                        src="/static/img/sun-glass-placeholder.jpeg"
+                        className="aspect-square w-full object-cover sm:rounded-lg"
                       />
                     </TabPanel>
                   )}
@@ -146,7 +159,12 @@ const Detail = () => {
                 </h1>
 
                 <div className="mt-3">
-                  <h2 className="sr-only">{intl.formatMessage({ id: "product_information", defaultMessage: "Product information" })}</h2>
+                  <h2 className="sr-only">
+                    {intl.formatMessage({
+                      id: "product_information",
+                      defaultMessage: "Product information",
+                    })}
+                  </h2>
                   <p className="text-3xl tracking-tight text-olivebrown-dark">
                     <FormattedPrice price={product?.simulatedPrice} />
                   </p>
@@ -154,17 +172,16 @@ const Detail = () => {
 
                 {product?.texts?.subtitle && (
                   <div className="mt-6">
-                    <h3 className="text-lg font-medium text-olivebrown-dark">{product?.texts?.subtitle}</h3>
+                    <h3 className="text-lg font-medium text-olivebrown-dark">
+                      {product?.texts?.subtitle}
+                    </h3>
                   </div>
                 )}
 
                 <div className="mt-6">
                   <div className="mt-10 flex gap-4">
                     <div className="flex-1">
-                      <AddToCartButton 
-                        productId={product?._id} 
-                        {...product}
-                      />
+                      <AddToCartButton productId={product?._id} {...product} />
                     </div>
 
                     <button
@@ -180,14 +197,21 @@ const Detail = () => {
                             })
                       }
                     >
-                      <HeartIcon 
-                        aria-hidden="true" 
+                      <HeartIcon
+                        aria-hidden="true"
                         className={classNames(
                           "size-6 shrink-0",
-                          filteredBookmark ? "fill-olivebrown-dark text-olivebrown-dark" : ""
+                          filteredBookmark
+                            ? "fill-olivebrown-dark text-olivebrown-dark"
+                            : "",
                         )}
                       />
-                      <span className="sr-only">{intl.formatMessage({ id: "add_to_favorites", defaultMessage: "Add to favorites" })}</span>
+                      <span className="sr-only">
+                        {intl.formatMessage({
+                          id: "add_to_favorites",
+                          defaultMessage: "Add to favorites",
+                        })}
+                      </span>
                     </button>
                   </div>
                 </div>
@@ -195,7 +219,10 @@ const Detail = () => {
                 {productDetails.length > 0 && (
                   <section aria-labelledby="details-heading" className="mt-12">
                     <h2 id="details-heading" className="sr-only">
-                      {intl.formatMessage({ id: "additional_details", defaultMessage: "Additional details" })}
+                      {intl.formatMessage({
+                        id: "additional_details",
+                        defaultMessage: "Additional details",
+                      })}
                     </h2>
 
                     <div className="divide-y divide-olivebrown-light-2 border-t border-olivebrown-light-2">

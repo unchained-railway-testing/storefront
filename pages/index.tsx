@@ -23,10 +23,19 @@ const Home = () => {
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
           <div className="sm:flex sm:items-baseline sm:justify-between">
             <h2 className="text-2xl font-medium tracking-tight text-olivebrown-darker">
-              {formatMessage({ id: "shop_by_category", defaultMessage: "Shop by Category" })}
+              {formatMessage({
+                id: "shop_by_category",
+                defaultMessage: "Shop by Category",
+              })}
             </h2>
-            <Link href="/shop" className="hidden text-sm font-medium text-olivebrown hover:text-olivebrown-dark sm:block">
-              {formatMessage({ id: "browse_all_categories", defaultMessage: "Browse all categories" })}
+            <Link
+              href="/shop"
+              className="hidden text-sm font-medium text-olivebrown hover:text-olivebrown-dark sm:block"
+            >
+              {formatMessage({
+                id: "browse_all_categories",
+                defaultMessage: "Browse all categories",
+              })}
               <span aria-hidden="true"> &rarr;</span>
             </Link>
           </div>
@@ -40,23 +49,33 @@ const Home = () => {
                   src="https://images.unsplash.com/photo-1588072432836-e10032774350?w=800&q=80"
                   className="absolute size-full object-cover group-hover:opacity-75"
                 />
-                <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-transparent to-olivebrown-darker opacity-50" />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-gradient-to-b from-transparent to-olivebrown-darker opacity-50"
+                />
                 <div className="absolute inset-0 flex items-end p-6">
                   <div>
                     <h3 className="font-medium text-white">
                       <Link href={`/shop/${categories[0]?.texts?.slug}`}>
                         <span className="absolute inset-0" />
-                        {categories[0]?.texts?.title || formatMessage({ id: "new_arrivals", defaultMessage: "New Arrivals" })}
+                        {categories[0]?.texts?.title ||
+                          formatMessage({
+                            id: "new_arrivals",
+                            defaultMessage: "New Arrivals",
+                          })}
                       </Link>
                     </h3>
                     <p aria-hidden="true" className="mt-1 text-sm text-white">
-                      {formatMessage({ id: "shop_now", defaultMessage: "Shop now" })}
+                      {formatMessage({
+                        id: "shop_now",
+                        defaultMessage: "Shop now",
+                      })}
                     </p>
                   </div>
                 </div>
               </div>
             )}
-            
+
             {/* Second Category */}
             {categories[1] && (
               <div className="group relative aspect-2/1 overflow-hidden rounded-lg sm:aspect-auto">
@@ -65,23 +84,33 @@ const Home = () => {
                   src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80"
                   className="absolute size-full object-cover group-hover:opacity-75"
                 />
-                <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-transparent to-olivebrown-darker opacity-50" />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-gradient-to-b from-transparent to-olivebrown-darker opacity-50"
+                />
                 <div className="absolute inset-0 flex items-end p-6">
                   <div>
                     <h3 className="font-medium text-white">
                       <Link href={`/shop/${categories[1]?.texts?.slug}`}>
                         <span className="absolute inset-0" />
-                        {categories[1]?.texts?.title || formatMessage({ id: "accessories", defaultMessage: "Accessories" })}
+                        {categories[1]?.texts?.title ||
+                          formatMessage({
+                            id: "accessories",
+                            defaultMessage: "Accessories",
+                          })}
                       </Link>
                     </h3>
                     <p aria-hidden="true" className="mt-1 text-sm text-white">
-                      {formatMessage({ id: "shop_now", defaultMessage: "Shop now" })}
+                      {formatMessage({
+                        id: "shop_now",
+                        defaultMessage: "Shop now",
+                      })}
                     </p>
                   </div>
                 </div>
               </div>
             )}
-            
+
             {/* Third Category */}
             {categories[2] && (
               <div className="group relative aspect-2/1 overflow-hidden rounded-lg sm:aspect-auto">
@@ -90,17 +119,27 @@ const Home = () => {
                   src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=800&q=80"
                   className="absolute size-full object-cover group-hover:opacity-75"
                 />
-                <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-transparent to-olivebrown-darker opacity-50" />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-gradient-to-b from-transparent to-olivebrown-darker opacity-50"
+                />
                 <div className="absolute inset-0 flex items-end p-6">
                   <div>
                     <h3 className="font-medium text-white">
                       <Link href={`/shop/${categories[2]?.texts?.slug}`}>
                         <span className="absolute inset-0" />
-                        {categories[2]?.texts?.title || formatMessage({ id: "workspace", defaultMessage: "Workspace" })}
+                        {categories[2]?.texts?.title ||
+                          formatMessage({
+                            id: "workspace",
+                            defaultMessage: "Workspace",
+                          })}
                       </Link>
                     </h3>
                     <p aria-hidden="true" className="mt-1 text-sm text-white">
-                      {formatMessage({ id: "shop_now", defaultMessage: "Shop now" })}
+                      {formatMessage({
+                        id: "shop_now",
+                        defaultMessage: "Shop now",
+                      })}
                     </p>
                   </div>
                 </div>
@@ -109,8 +148,14 @@ const Home = () => {
           </div>
 
           <div className="mt-6 sm:hidden">
-            <Link href="/shop" className="block text-sm font-medium text-olivebrown hover:text-olivebrown-dark">
-              {formatMessage({ id: "browse_all_categories", defaultMessage: "Browse all categories" })}
+            <Link
+              href="/shop"
+              className="block text-sm font-medium text-olivebrown hover:text-olivebrown-dark"
+            >
+              {formatMessage({
+                id: "browse_all_categories",
+                defaultMessage: "Browse all categories",
+              })}
               <span aria-hidden="true"> &rarr;</span>
             </Link>
           </div>
@@ -129,8 +174,14 @@ const Home = () => {
                     defaultMessage: "Our Products",
                   })}
                 </h2>
-                <Link href="/shop" className="hidden text-sm font-medium text-olivebrown hover:text-olivebrown-dark sm:block">
-                  {formatMessage({ id: "view_all", defaultMessage: "View all" })}
+                <Link
+                  href="/shop"
+                  className="hidden text-sm font-medium text-olivebrown hover:text-olivebrown-dark sm:block"
+                >
+                  {formatMessage({
+                    id: "view_all",
+                    defaultMessage: "View all",
+                  })}
                   <span aria-hidden="true"> &rarr;</span>
                 </Link>
               </div>

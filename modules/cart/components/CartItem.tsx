@@ -93,7 +93,9 @@ const CartItem = ({
             </p>
           </div>
           {product?.texts?.subtitle && (
-            <p className="mt-1 text-sm text-olivebrown-dark">{product?.texts?.subtitle}</p>
+            <p className="mt-1 text-sm text-olivebrown-dark">
+              {product?.texts?.subtitle}
+            </p>
           )}
         </div>
         <div className="flex flex-1 items-end justify-between text-sm">

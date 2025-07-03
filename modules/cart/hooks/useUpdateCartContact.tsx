@@ -14,10 +14,13 @@ const UPDATE_CART_CONTACT_MUTATION = gql`
 `;
 
 const useUpdateCartContact = () => {
-  const [updateCartContactMutation] = useMutation(UPDATE_CART_CONTACT_MUTATION, {
-    refetchQueries: [{ query: CART_CHECKOUT_QUERY }],
-    awaitRefetchQueries: true,
-  });
+  const [updateCartContactMutation] = useMutation(
+    UPDATE_CART_CONTACT_MUTATION,
+    {
+      refetchQueries: [{ query: CART_CHECKOUT_QUERY }],
+      awaitRefetchQueries: true,
+    },
+  );
 
   const updateCartContact = async ({ contact }) => {
     await updateCartContactMutation({ variables: { contact } });

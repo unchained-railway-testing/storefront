@@ -9,27 +9,39 @@ const tailwindConfig = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Poppins', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif'],
+        sans: [
+          "Poppins",
+          "ui-sans-serif",
+          "system-ui",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "sans-serif",
+        ],
       },
       fontWeight: {
-        normal: '300',
-        medium: '400',
-        semibold: '400',
-        bold: '400',
+        normal: "300",
+        medium: "400",
+        semibold: "400",
+        bold: "400",
       },
       colors: {
         // Anandi yoga color scheme
-        "beige": "#f8f0d5",
+        beige: "#f8f0d5",
         "beige-alt": "#eee5c4",
-        "olivebrown": "#d4b78f",
+        olivebrown: "#d4b78f",
         "olivebrown-alt": "#f6eedb",
-        "quaternary": "#e5d8ae",
-        "withblur": "rgba(248, 240, 213, 0.6)",
+        quaternary: "#e5d8ae",
+        withblur: "rgba(248, 240, 213, 0.6)",
         "olivebrown-light": "#efdeb7",
         "olivebrown-light-2": "#e1d1ab",
         "olivebrown-dark": "#7f6f49",
         "olivebrown-darker": "#50462f",
-        
+
         // Map existing color names to Anandi colors
         "dark-gray": "#7f6f49",
         "color-light-dark": "#50462f",

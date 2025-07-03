@@ -1,6 +1,11 @@
 import Link from "next/link";
 import { useIntl } from "react-intl";
-import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react';
+import {
+  Dialog,
+  DialogBackdrop,
+  DialogPanel,
+  DialogTitle,
+} from "@headlessui/react";
 import { ShoppingBagIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import useUser from "../../auth/hooks/useUser";
 import CartItem from "./CartItem";
@@ -16,7 +21,11 @@ const SideCart = ({ isOpen }) => {
   const isEmpty = cartItems.length === 0;
 
   return (
-    <Dialog open={isOpen} onClose={() => toggleCart(false)} className="relative z-50">
+    <Dialog
+      open={isOpen}
+      onClose={() => toggleCart(false)}
+      className="relative z-50"
+    >
       <DialogBackdrop
         transition
         className="fixed inset-0 bg-olivebrown-darker/75 transition-opacity duration-500 ease-in-out data-closed:opacity-0"
@@ -62,21 +71,28 @@ const SideCart = ({ isOpen }) => {
                       <p className="text-olivebrown-dark">
                         {intl.formatMessage({
                           id: "no_product_in_cart",
-                          defaultMessage: "There are no products in your Cart. Browse our",
+                          defaultMessage:
+                            "There are no products in your Cart. Browse our",
                         })}{" "}
                         <Link
                           href="/shop"
                           onClick={() => toggleCart(false)}
                           className="font-medium text-olivebrown hover:text-olivebrown-dark underline"
                         >
-                          {intl.formatMessage({ id: "shop", defaultMessage: "Shop" })}
+                          {intl.formatMessage({
+                            id: "shop",
+                            defaultMessage: "Shop",
+                          })}
                         </Link>
                       </p>
                     </div>
                   ) : (
                     <div className="mt-8">
                       <div className="flow-root">
-                        <ul role="list" className="-my-6 divide-y divide-olivebrown-light-2">
+                        <ul
+                          role="list"
+                          className="-my-6 divide-y divide-olivebrown-light-2"
+                        >
                           {cartItems.map((item) => (
                             <li key={item._id} className="py-6">
                               <CartItem {...item} />
@@ -104,7 +120,8 @@ const SideCart = ({ isOpen }) => {
                     <p className="mt-0.5 text-sm text-olivebrown-dark">
                       {intl.formatMessage({
                         id: "shipping_taxes_calculated",
-                        defaultMessage: "Shipping and taxes calculated at checkout.",
+                        defaultMessage:
+                          "Shipping and taxes calculated at checkout.",
                       })}
                     </p>
                     <div className="mt-6">
