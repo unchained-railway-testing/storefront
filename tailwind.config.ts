@@ -8,6 +8,15 @@ const tailwindConfig = {
   content: ["./pages/**/*.{js,ts,jsx,tsx}", "./modules/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Poppins', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif'],
+      },
+      fontWeight: {
+        normal: '300',
+        medium: '400',
+        semibold: '400',
+        bold: '400',
+      },
       colors: {
         // Anandi yoga color scheme
         "beige": "#f8f0d5",

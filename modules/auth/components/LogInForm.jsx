@@ -205,7 +205,7 @@ const LogInForm = () => {
     <div className="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div>
-          <h2 className="mt-6 text-center text-3xl font-bold tracking-tight dark:text-white ">
+          <h2 className="mt-6 text-center text-3xl font-medium tracking-tight dark:text-white ">
             {formatMessage({ id: "sign_up", defaultMessage: "Register" })}
           </h2>
           {!emailSupportDisabled ? (
@@ -259,7 +259,7 @@ const LogInForm = () => {
                 />
                 {error && <div className="mt-3 text-red-600">{error}</div>}
                 {showPasswordNav && (
-                  <p className="text-center font-extrabold text-red-700 cursor-pointer">
+                  <p className="text-center font-medium text-red-700 cursor-pointer">
                     <button type="button" onClick={nextStep}>
                       {formatMessage({
                         id: "use-password-to-authenticate",
@@ -277,7 +277,7 @@ const LogInForm = () => {
                       id: "continue",
                       defaultMessage: "Continue",
                     })}
-                    className="flex w-full justify-center rounded-md border border-transparent bg-slate-800 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-800 focus:ring-offset-2"
+                    className="flex w-full justify-center rounded-md border border-transparent bg-olivebrown-darker py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-olivebrown-dark focus:outline-none focus:ring-2 focus:ring-slate-800 focus:ring-offset-2"
                   />
                 </div>
               </form>

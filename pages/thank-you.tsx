@@ -72,7 +72,7 @@ const ThankYou = () => {
                   defaultMessage: "Thank you!",
                 })}
               </h1>
-              <p className="mt-2 text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-5xl">
+              <p className="mt-2 text-4xl font-medium tracking-tight text-slate-900 dark:text-white sm:text-5xl">
                 {formatMessage({
                   id: "thank_you_header",
                   defaultMessage: "Thank You for Placing this Order with Us!",
@@ -135,7 +135,7 @@ const ThankYou = () => {
                   />
                 </div>
               </div>
-              <div className="text-slate-700 dark:text-slate-300">
+              <div className="text-olivebrown-dark dark:text-slate-300">
                 <div className="mt-4 rounded-lg border border-slate-300 bg-beige shadow-sm dark:bg-slate-500">
                   <ul className="divide-y divide-slate-300">
                     {(order?.items || []).map((item) => (

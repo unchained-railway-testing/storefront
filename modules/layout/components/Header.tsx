@@ -39,7 +39,9 @@ const Header = () => {
           <div className="flex items-center justify-start">
             <DesktopNavigation />
             <Link href="/" className="ml-4 flex items-center">
-              <span className="text-xl font-semibold text-gray-900">anandi yoga shop</span>
+              <span className="text-xl font-medium text-gray-900">
+                Yoga Kurse bei Anandi
+              </span>
             </Link>
           </div>
           <div className="mr-10 flex">
@@ -63,7 +65,9 @@ const Header = () => {
             />
 
             <Link href="/" className="flex items-center">
-              <span className="text-lg font-semibold text-gray-900">anandi yoga shop</span>
+              <span className="text-lg font-medium text-gray-900">
+                anandi yoga shop
+              </span>
             </Link>
           </div>
 

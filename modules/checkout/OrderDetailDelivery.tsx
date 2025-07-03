@@ -15,7 +15,7 @@ const OrderDetailDelivery = ({ order }) => {
   const { formatDateTime } = useFormatDateTime();
 
   return (
-    <div className="bg-beige dark:bg-slate-800 shadow dark:shadow-none sm:rounded-lg">
+    <div className="bg-beige dark:bg-olivebrown-darker shadow dark:shadow-none sm:rounded-lg">
       <div className="flex items-center justify-between px-4 sm:px-6">
         <h2 className="py-4 text-lg font-medium">
           {formatMessage({
@@ -23,7 +23,7 @@ const OrderDetailDelivery = ({ order }) => {
             defaultMessage: "Delivered",
           })}
         </h2>
-        <span className="mr-2 block rounded-full py-1 text-xs font-semibold leading-5">
+        <span className="mr-2 block rounded-full py-1 text-xs font-medium leading-5">
           {formatPrice(order?.delivery.fee)}
         </span>
         <span className="font-medium">
@@ -33,7 +33,7 @@ const OrderDetailDelivery = ({ order }) => {
           })}
         </span>
       </div>
-      <div className="border-t border-slate-50 dark:border-slate-700 px-4 py-4 sm:px-6">
+      <div className="border-t border-slate-50 dark:border-olivebrown-dark px-4 py-4 sm:px-6">
         <span className="mb-5 block">
           <span className="font-medium text-slate-600 dark:text-slate-400 hover:text-slate-500 dark:hover:text-slate-300">
             {getInterfaceLabel(order?.delivery?.provider?.interface)}
@@ -46,7 +46,7 @@ const OrderDetailDelivery = ({ order }) => {
             defaultMessage: "Method",
           })}
         </div>
-        <span className="mr-2 block rounded-full py-1 text-xs font-semibold leading-5">
+        <span className="mr-2 block rounded-full py-1 text-xs font-medium leading-5">
           {deliveryProviderType.map((type) => (
             <StatusInformation
               key={type.value}
@@ -63,7 +63,7 @@ const OrderDetailDelivery = ({ order }) => {
             defaultMessage: "Status",
           })}
         </div>
-        <span className="mr-2 block rounded-full py-1 text-xs font-semibold leading-5 print:hidden">
+        <span className="mr-2 block rounded-full py-1 text-xs font-medium leading-5 print:hidden">
           {deliveryStatusType.map((type) => (
             <StatusInformation
               key={type.value}

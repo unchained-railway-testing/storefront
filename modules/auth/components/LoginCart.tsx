@@ -47,7 +47,7 @@ const LoginCart = () => {
         <ShoppingCartIcon className="inline-flex h-6 w-6 select-none items-center justify-center dark:text-white" />
 
         {user?.cart?.items?.length ? (
-          <span className="inline-block rounded-[50%] text-center font-bold leading-relaxed text-slate-900 dark:text-slate-300">
+          <span className="inline-block rounded-[50%] text-center font-medium leading-relaxed text-slate-900 dark:text-slate-300">
             {user?.cart?.items.reduce((acc, item) => acc + item.quantity, 0)}
           </span>
         ) : (

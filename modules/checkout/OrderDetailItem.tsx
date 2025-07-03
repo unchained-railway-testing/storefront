@@ -17,7 +17,7 @@ const OrderDetailItem = ({ item }) => {
         </h2>
 
         <div className="space-y-8">
-          <div className="mb-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-beige dark:bg-slate-800 shadow dark:shadow-none dark:text-slate-200 hover:border hover:border-solid hover:border-slate-600">
+          <div className="mb-2 rounded-lg border border-slate-200 dark:border-olivebrown-dark bg-beige dark:bg-olivebrown-darker shadow dark:shadow-none dark:text-slate-200 hover:border hover:border-solid hover:border-slate-600">
             <div className="px-2 py-1">
               <div className="flex items-center flex-wrap">
                 <div className="flex flex-shrink-0 overflow-hidden rounded-lg sm:mx-0 ">
@@ -53,7 +53,7 @@ const OrderDetailItem = ({ item }) => {
                       id: "item_quantity",
                       defaultMessage: "Quantity:",
                     })}
-                    <span className="ml-2 font-bold">{item?.quantity}</span>
+                    <span className="ml-2 font-medium">{item?.quantity}</span>
                   </div>
                 </div>
               </div>

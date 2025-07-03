@@ -104,10 +104,12 @@ const AddressForm = ({ address, onSubmit, onCancel }) => {
 
         <div>
           <TextField
-            label={`${formatMessage({ id: "region", defaultMessage: "Region" })} ${formatMessage({
-              id: "optional",
-              defaultMessage: "(Optional)",
-            })}`}
+            label={`${formatMessage({ id: "region", defaultMessage: "Region" })} ${formatMessage(
+              {
+                id: "optional",
+                defaultMessage: "(Optional)",
+              },
+            )}`}
             name="regionCode"
           />
         </div>
@@ -126,24 +128,24 @@ const AddressForm = ({ address, onSubmit, onCancel }) => {
           </SelectField>
         </div>
       </div>
-      
+
       <FormErrors />
 
-      <div className="mt-6 flex gap-4">
+      <div className="mt-6 flex gap-3">
         <Button
           text={formatMessage({
             id: "save_address",
             defaultMessage: "Save Address",
           })}
           type="submit"
-          className="flex-1 bg-olivebrown text-white hover:bg-olivebrown-dark"
+          className=" bg-olivebrown text-white hover:bg-olivebrown-dark rounded-md px-4 py-2"
         />
         <Button
           text={formatMessage({
             id: "cancel",
             defaultMessage: "Cancel",
           })}
-          className="bg-beige-alt text-olivebrown-dark border border-olivebrown-light hover:bg-olivebrown-alt"
+          className="flex-1 bg-olivebrown text-olivebrown-dark border border-olivebrown-light hover:bg-beige-alt rounded-md px-4 py-2"
           type="button"
           onClick={onCancel}
         />

@@ -68,7 +68,7 @@ const CategoryDetail = () => {
         </div>
         <div className="relative w-full px-4 md:max-w-2/3 md:flex-6 lg:max-w-3/4 lg:flex-7">
           <div>
-            <h1 className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100 sm:text-3xl">
+            <h1 className="text-2xl font-medium tracking-tight text-slate-900 dark:text-slate-100 sm:text-3xl">
               {texts?.title}
             </h1>
             <h2>{texts?.subtitle}</h2>

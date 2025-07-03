@@ -1,4 +1,5 @@
 import { useMutation, gql } from "@apollo/client";
+import { CART_CHECKOUT_QUERY } from "../../checkout/Checkout";
 
 const UPDATE_CART_CONTACT_MUTATION = gql`
   mutation UpdateCartContact($contact: ContactInput) {
@@ -13,7 +14,10 @@ const UPDATE_CART_CONTACT_MUTATION = gql`
 `;
 
 const useUpdateCartContact = () => {
-  const [updateCartContactMutation] = useMutation(UPDATE_CART_CONTACT_MUTATION);
+  const [updateCartContactMutation] = useMutation(UPDATE_CART_CONTACT_MUTATION, {
+    refetchQueries: [{ query: CART_CHECKOUT_QUERY }],
+    awaitRefetchQueries: true,
+  });
 
   const updateCartContact = async ({ contact }) => {
     await updateCartContactMutation({ variables: { contact } });

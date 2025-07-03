@@ -86,7 +86,7 @@ const ForgotPasswordForm = () => {
         })}
         <Link
           href="/sign-up"
-          className="font-semibold text-slate-500 dark:text-slate-400 focus:text-slate-600 dark:hover:text-slate-300 focus:underline focus:outline-none"
+          className="font-medium text-slate-500 dark:text-slate-400 focus:text-slate-600 dark:hover:text-slate-300 focus:underline focus:outline-none"
         >
           {formatMessage({ id: "sign_up", defaultMessage: "Sign up" })}
         </Link>

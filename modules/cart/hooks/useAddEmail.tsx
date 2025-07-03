@@ -1,4 +1,5 @@
 import { useMutation, gql } from "@apollo/client";
+import { USER_QUERY } from "../../auth/hooks/useUser";
 
 export const ADD_EMAIL_MUTATION = gql`
   mutation AddEmail($email: String!) {
@@ -18,7 +19,10 @@ export const ADD_EMAIL_MUTATION = gql`
 `;
 
 const useAddEmail = () => {
-  const [addEmailMutation] = useMutation(ADD_EMAIL_MUTATION);
+  const [addEmailMutation] = useMutation(ADD_EMAIL_MUTATION, {
+    refetchQueries: [{ query: USER_QUERY }],
+    awaitRefetchQueries: true,
+  });
 
   const addEmail = async ({ email }) => {
     await addEmailMutation({ variables: { email } });

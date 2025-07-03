@@ -141,7 +141,7 @@ const Detail = () => {
 
               {/* Product info */}
               <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
-                <h1 className="text-3xl font-bold tracking-tight text-olivebrown-darker">
+                <h1 className="text-3xl font-medium tracking-tight text-olivebrown-darker">
                   {product?.texts?.title}
                 </h1>
 

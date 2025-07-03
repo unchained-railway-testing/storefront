@@ -22,10 +22,10 @@ const Home = () => {
         {/* Category Showcase */}
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
           <div className="sm:flex sm:items-baseline sm:justify-between">
-            <h2 className="text-2xl font-bold tracking-tight text-olivebrown-darker">
+            <h2 className="text-2xl font-medium tracking-tight text-olivebrown-darker">
               {formatMessage({ id: "shop_by_category", defaultMessage: "Shop by Category" })}
             </h2>
-            <Link href="/shop" className="hidden text-sm font-semibold text-olivebrown hover:text-olivebrown-dark sm:block">
+            <Link href="/shop" className="hidden text-sm font-medium text-olivebrown hover:text-olivebrown-dark sm:block">
               {formatMessage({ id: "browse_all_categories", defaultMessage: "Browse all categories" })}
               <span aria-hidden="true"> &rarr;</span>
             </Link>
@@ -43,7 +43,7 @@ const Home = () => {
                 <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-transparent to-olivebrown-darker opacity-50" />
                 <div className="absolute inset-0 flex items-end p-6">
                   <div>
-                    <h3 className="font-semibold text-white">
+                    <h3 className="font-medium text-white">
                       <Link href={`/shop/${categories[0]?.texts?.slug}`}>
                         <span className="absolute inset-0" />
                         {categories[0]?.texts?.title || formatMessage({ id: "new_arrivals", defaultMessage: "New Arrivals" })}
@@ -68,7 +68,7 @@ const Home = () => {
                 <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-transparent to-olivebrown-darker opacity-50" />
                 <div className="absolute inset-0 flex items-end p-6">
                   <div>
-                    <h3 className="font-semibold text-white">
+                    <h3 className="font-medium text-white">
                       <Link href={`/shop/${categories[1]?.texts?.slug}`}>
                         <span className="absolute inset-0" />
                         {categories[1]?.texts?.title || formatMessage({ id: "accessories", defaultMessage: "Accessories" })}
@@ -93,7 +93,7 @@ const Home = () => {
                 <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-transparent to-olivebrown-darker opacity-50" />
                 <div className="absolute inset-0 flex items-end p-6">
                   <div>
-                    <h3 className="font-semibold text-white">
+                    <h3 className="font-medium text-white">
                       <Link href={`/shop/${categories[2]?.texts?.slug}`}>
                         <span className="absolute inset-0" />
                         {categories[2]?.texts?.title || formatMessage({ id: "workspace", defaultMessage: "Workspace" })}
@@ -109,7 +109,7 @@ const Home = () => {
           </div>
 
           <div className="mt-6 sm:hidden">
-            <Link href="/shop" className="block text-sm font-semibold text-olivebrown hover:text-olivebrown-dark">
+            <Link href="/shop" className="block text-sm font-medium text-olivebrown hover:text-olivebrown-dark">
               {formatMessage({ id: "browse_all_categories", defaultMessage: "Browse all categories" })}
               <span aria-hidden="true"> &rarr;</span>
             </Link>
@@ -123,13 +123,13 @@ const Home = () => {
           products.length !== 0 && (
             <div className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 sm:pb-24 lg:px-8">
               <div className="sm:flex sm:items-baseline sm:justify-between">
-                <h2 className="text-2xl font-bold tracking-tight text-olivebrown-darker">
+                <h2 className="text-2xl font-medium tracking-tight text-olivebrown-darker">
                   {formatMessage({
                     id: "our_products",
                     defaultMessage: "Our Products",
                   })}
                 </h2>
-                <Link href="/shop" className="hidden text-sm font-semibold text-olivebrown hover:text-olivebrown-dark sm:block">
+                <Link href="/shop" className="hidden text-sm font-medium text-olivebrown hover:text-olivebrown-dark sm:block">
                   {formatMessage({ id: "view_all", defaultMessage: "View all" })}
                   <span aria-hidden="true"> &rarr;</span>
                 </Link>

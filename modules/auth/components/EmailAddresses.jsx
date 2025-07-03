@@ -53,7 +53,7 @@ const EmailAddresses = ({ emails }) => {
           <div className="gap-2 md:grid md:grid-cols-2">
             {emails?.map((e) => (
               <div key={e.address} className="mb-1 flex flex-wrap items-center">
-                <span className="text-lg font-extrabold dark:text-slate-100">
+                <span className="text-lg font-medium dark:text-slate-100">
                   {e.address}
                 </span>
                 <VerifiedStatus isActive={e.verified} />
@@ -65,7 +65,7 @@ const EmailAddresses = ({ emails }) => {
                         id: "send_verification_email",
                         defaultMessage: "Send Verification Link",
                       })}
-                      className="my-2 mr-2 border-0 bg-slate-900 text-white hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2"
+                      className="my-2 mr-2 border-0 bg-slate-900 text-white hover:bg-olivebrown-dark focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2"
                       onClick={() => resendVerificationEmail(e.address)}
                     />
                   )}

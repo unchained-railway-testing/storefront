@@ -14,9 +14,9 @@ const OrderDetailBilling = ({ order }) => {
       </h2>
 
       <div className="md:grid md:grid-cols-2 md:gap-x-8 print:flex">
-        <dl className="bg-beige dark:bg-slate-800 p-4 shadow dark:shadow-none sm:rounded-lg grid justify-center text-sm md:justify-start md:gap-x-8">
+        <dl className="bg-beige dark:bg-olivebrown-darker p-4 shadow dark:shadow-none sm:rounded-lg grid justify-center text-sm md:justify-start md:gap-x-8">
           <div>
-            <span className="text-xl mb-5 block font-bold">
+            <span className="text-xl mb-5 block font-medium">
               {order?.billingAddress?.firstName ||
                 order?.billingAddress?.lastName ||
                 "n/a"}
@@ -41,15 +41,15 @@ const OrderDetailBilling = ({ order }) => {
           </div>
         </dl>
 
-        <dl className="bg-beige dark:bg-slate-800 p-4 shadow dark:shadow-none sm:rounded-lg mt-4 divide-y divide-slate-50 dark:divide-slate-700 text-sm lg:mt-0">
+        <dl className="bg-beige dark:bg-olivebrown-darker p-4 shadow dark:shadow-none sm:rounded-lg mt-4 divide-y divide-slate-50 dark:divide-olivebrown-dark text-sm lg:mt-0">
           <div className="flex items-center justify-between pb-3 text-lg">
-            <dt className="font-bold">
+            <dt className="font-medium">
               {formatMessage({
                 id: "order_total",
                 defaultMessage: "Order total",
               })}
             </dt>
-            <dd className="font-bold">
+            <dd className="font-medium">
               <FormattedPrice price={order?.total} />
             </dd>
           </div>

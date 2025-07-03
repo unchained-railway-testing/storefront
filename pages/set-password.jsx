@@ -11,7 +11,7 @@ const SetPassword = () => {
     <div className="flex min-h-screen justify-center bg-slate-100 dark:bg-slate-600 antialiased">
       <div className="container my-auto mt-24 max-w-md border-2 border-slate-200 dark:border-slate-800 bg-beige dark:bg-slate-900 shadow rounded dark:shadow-none p-3 sm:mt-40">
         <div className="m-6 text-center">
-          <h1 className="text-3xl font-semibold text-brown-600 dark:text-slate-200">
+          <h1 className="text-3xl font-medium text-brown-600 dark:text-slate-200">
             {formatMessage({
               id: "set-password-header",
               defaultMessage: "Set password",

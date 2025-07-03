@@ -41,7 +41,7 @@ const OrderSuccessTankYouPage = () => {
       ) : (
         <div>
           <div className="bg-beige p-8 rounded-lg shadow-md text-center print:hidden">
-            <h1 className="text-2xl font-semibold text-gray-800">
+            <h1 className="text-2xl font-medium text-gray-800">
               Order Confirmation
             </h1>
             <p className="text-gray-600 mt-4">

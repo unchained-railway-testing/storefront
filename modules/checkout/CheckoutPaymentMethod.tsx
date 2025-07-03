@@ -79,7 +79,7 @@ const CheckoutPaymentMethod = ({ cart, disabled = false }) => {
                 value={provider._id}
                 defaultChecked={cart.payment?.provider?._id === provider._id}
                 onChange={setPaymentProvider}
-                className="h-4 w-4 border-slate-300 text-red-600 focus:ring-red-800"
+                className="h-4 w-4 border-slate-300 text-olivebrown-dark focus:ring-red-800"
               />
               <label
                 htmlFor={provider._id}

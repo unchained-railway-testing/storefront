@@ -45,7 +45,7 @@ const OrderDetail = ({ order }) => {
             id: "print",
             defaultMessage: "Print",
           })}
-          className=" bg-black  sm:text-white text-white hover:bg-slate-700"
+          className=" bg-black  sm:text-white text-white hover:bg-olivebrown-dark"
           type="button"
           onClick={onPrint}
           icon={<PrinterIcon className="h-5 w-5" />}
@@ -60,7 +60,7 @@ const OrderDetail = ({ order }) => {
           <OrderDetailBilling order={order} />
         </div>
 
-        <div className="lg:col-span-2 bg-beige dark:bg-slate-800 p-4 shadow dark:shadow-none rounded-md">
+        <div className="lg:col-span-2 bg-beige dark:bg-olivebrown-darker p-4 shadow dark:shadow-none rounded-md">
           <StatusProgress
             data={order}
             statusTypes={orderStatusType}

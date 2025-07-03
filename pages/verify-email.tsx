@@ -107,7 +107,7 @@ const VerifyEmail = () => {
           <Link href="/" legacyBehavior>
             <a
               type="button"
-              className="px-4 py-2 text-white bg-slate-800 rounded"
+              className="px-4 py-2 text-white bg-olivebrown-darker rounded"
             >
               {formatMessage({
                 id: "go-home",

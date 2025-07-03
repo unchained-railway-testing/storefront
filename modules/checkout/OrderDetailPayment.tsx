@@ -15,7 +15,7 @@ const OrderDetailPayment = ({ order }) => {
   const { formatMessage } = useIntl();
 
   return (
-    <div className="bg-beige dark:bg-slate-800 shadow dark:shadow-none sm:rounded-lg">
+    <div className="bg-beige dark:bg-olivebrown-darker shadow dark:shadow-none sm:rounded-lg">
       <div className="flex items-center justify-between px-4 sm:px-6">
         <h2 className="py-4 text-lg font-medium text-slate-900 dark:text-slate-200">
           {formatMessage({
@@ -23,7 +23,7 @@ const OrderDetailPayment = ({ order }) => {
             defaultMessage: "Paid",
           })}
         </h2>
-        <span className="mr-2 block rounded-full py-1 text-xs font-semibold leading-5">
+        <span className="mr-2 block rounded-full py-1 text-xs font-medium leading-5">
           {formatPrice(order.payment.fee)}
         </span>
         <span className="font-medium">
@@ -34,7 +34,7 @@ const OrderDetailPayment = ({ order }) => {
         </span>
       </div>
 
-      <div className="border-t border-slate-50 dark:border-slate-700 px-4 py-4 sm:px-6">
+      <div className="border-t border-slate-50 dark:border-olivebrown-dark px-4 py-4 sm:px-6">
         <span className="mb-5  block">
           <span className="font-medium text-slate-600 dark:text-slate-400 hover:text-slate-500 dark:hover:text-slate-300">
             {getInterfaceLabel(order.payment?.provider?.interface)}
@@ -46,7 +46,7 @@ const OrderDetailPayment = ({ order }) => {
             defaultMessage: "Method",
           })}
         </div>
-        <span className="c mr-2 block rounded-full py-1 text-xs font-semibold leading-5">
+        <span className="c mr-2 block rounded-full py-1 text-xs font-medium leading-5">
           {paymentProviderType.map((type) => (
             <StatusInformation
               key={type.value}
@@ -62,7 +62,7 @@ const OrderDetailPayment = ({ order }) => {
             defaultMessage: "Status",
           })}
         </div>
-        <span className="mr-2 block rounded-full py-1 text-xs font-semibold leading-5 print:hidden">
+        <span className="mr-2 block rounded-full py-1 text-xs font-medium leading-5 print:hidden">
           {paymentStatusTypes.map((type) => (
             <StatusInformation
               key={type.value}

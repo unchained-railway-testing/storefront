@@ -16,10 +16,22 @@ const CheckoutContact = ({ cart, isInitial }) => {
 
   const updateContact = async (contactInfo) => {
     try {
-      if (contactInfo.emailAddress)
-        await addEmail({
-          email: contactInfo.emailAddress,
-        });
+      // Try to add email first only if it's provided
+      if (contactInfo.emailAddress) {
+        try {
+          await addEmail({
+            email: contactInfo.emailAddress,
+          });
+        } catch (emailError) {
+          // If email addition fails with duplicate, show login option
+          if ((emailError as any)?.message.includes("duplicate")) {
+            setShowLogin(true);
+            return; // Don't proceed with cart update if email is duplicate
+          }
+          // For other email errors, log but continue with cart update
+          console.warn("Email addition failed:", emailError);
+        }
+      }
 
       await updateCartContact({
         contact: contactInfo,
@@ -27,7 +39,7 @@ const CheckoutContact = ({ cart, isInitial }) => {
       setShowLogin(false);
       setEditMode(false);
     } catch (error) {
-      if ((error as any)?.message.includes("duplicate")) setShowLogin(true);
+      console.error("Contact update error:", error);
       throw error;
     }
   };
