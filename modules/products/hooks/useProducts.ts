@@ -26,15 +26,16 @@ const useProducts = ({ limit = 50 } = {}) => {
   });
 
   // Flatten products from all assortments and deduplicate
-  const allProducts = data?.assortments?.reduce((acc, assortment) => {
-    const products = assortment?.searchProducts?.products || [];
-    products.forEach(product => {
-      if (!acc.find(p => p._id === product._id)) {
-        acc.push(product);
-      }
-    });
-    return acc;
-  }, []) || [];
+  const allProducts =
+    data?.assortments?.reduce((acc, assortment) => {
+      const products = assortment?.searchProducts?.products || [];
+      products.forEach((product) => {
+        if (!acc.find((p) => p._id === product._id)) {
+          acc.push(product);
+        }
+      });
+      return acc;
+    }, []) || [];
 
   return {
     loading,

@@ -31,7 +31,7 @@ const Footer = () => {
 
       <div className="max-w-full px-1">
         <div className="pt-8">
-          <div className="border-t border-gray-200">
+          <div className="border-t border-olivebrown">
             <div className="flex max-w-full space-x-6">
               {footerNavigation.social.map((item) => (
                 <a
@@ -117,10 +117,8 @@ const Footer = () => {
               ))}
             </div>
 
-            <div className="ml-6 border-gray-200 pl-6">
-              <div className="flex items-center text-base text-olivebrown-dark hover:text-olivebrown-darker">
-                <LanguageSwitch />
-              </div>
+            <div className="flex items-center text-base text-olivebrown-dark hover:text-olivebrown-darker">
+              <LanguageSwitch />
             </div>
           </div>
         </div>

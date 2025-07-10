@@ -33,14 +33,14 @@ const Home = () => {
       <div className="bg-beige">
         {/* All Categories Grid */}
         <div className="mx-auto px-4 py-16 sm:py-24">
-          <div className="text-center mb-12">
+          <div className="mb-12">
             <h1 className="text-4xl font-bold tracking-tight text-olivebrown-darker sm:text-5xl">
               {formatMessage({
                 id: "welcome_anandi",
                 defaultMessage: "Welcome to Anandi Yoga",
               })}
             </h1>
-            <p className="mx-auto mt-4 max-w-3xl text-lg text-olivebrown-dark">
+            <p className="mt-4 max-w-3xl text-lg text-olivebrown-dark">
               {formatMessage({
                 id: "homepage_description",
                 defaultMessage:
@@ -49,14 +49,14 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="text-center mb-12">
+          <div className="mb-12">
             <h2 className="text-3xl font-bold tracking-tight text-olivebrown-darker mb-4">
               {formatMessage({
                 id: "shop_by_category",
                 defaultMessage: "Shop by Category",
               })}
             </h2>
-            <p className="text-olivebrown-dark max-w-2xl mx-auto">
+            <p className="text-olivebrown-dark max-w-2xl">
               Explore our thoughtfully curated collections designed to support
               your yoga journey and mindful living.
             </p>
@@ -65,7 +65,10 @@ const Home = () => {
           {categoriesLoading ? (
             <Loading />
           ) : (
-            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            <div
+              className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+              style={{ gridTemplateRows: "subgrid" }}
+            >
               {assortments.map((category) => (
                 <CategoryListItem key={category._id} category={category} />
               ))}
@@ -76,14 +79,14 @@ const Home = () => {
         {/* All Products Section */}
         <div className="">
           <div className="mx-auto py-16">
-            <div className="text-center mb-12">
+            <div className="mb-12">
               <h2 className="text-3xl font-bold tracking-tight text-olivebrown-darker mb-4">
                 {formatMessage({
                   id: "all_products",
                   defaultMessage: "All Products",
                 })}
               </h2>
-              <p className="text-olivebrown-dark max-w-2xl mx-auto">
+              <p className="text-olivebrown-dark max-w-2xl">
                 Discover our complete range of premium yoga essentials,
                 carefully selected to enhance your practice and well-being.
               </p>
@@ -117,7 +120,7 @@ const Home = () => {
                 onLoadMore={() => {}}
               />
             ) : (
-              <div className="text-center">
+              <div>
                 <h3 className="text-lg font-medium text-olivebrown-darker">
                   {formatMessage({
                     id: "no_products_found_homepage",

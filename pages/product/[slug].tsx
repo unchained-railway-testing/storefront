@@ -183,7 +183,6 @@ const Detail = () => {
                     <div className="flex-1">
                       <AddToCartButton productId={product?._id} {...product} />
                     </div>
-
                   </div>
                 </div>
 

@@ -517,7 +517,7 @@ const OrderDetail = ({ order }) => {
             <span className="text-2xl">✨</span>
           </div>
           <p className="text-sm text-olivebrown-dark mt-2 max-w-md mx-auto">
-            Your journey towards inner peace and wellness continues. We're
+            Your journey towards inner peace and wellness continues. We are
             honored to be part of your yoga practice.
           </p>
         </div>

@@ -14,14 +14,17 @@ const ProductList = ({ products, totalProducts, onLoadMore }) => {
           {formatMessage({ id: "products", defaultMessage: "Products" })}
         </h2>
 
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div
+          className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+          style={{ gridTemplateRows: "subgrid" }}
+        >
           {products.map((product) => (
             <ProductListItem key={product?._id} product={product} />
           ))}
         </div>
 
         {totalProducts > products?.length && (
-          <div className="items-center py-12 text-center">
+          <div className="items-center py-12">
             <Button
               icon={<ChevronDoubleDownIcon className="mr-2 h-6 w-6" />}
               text={formatMessage({
