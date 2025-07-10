@@ -1,203 +1,143 @@
 import { useIntl } from "react-intl";
-import Link from "next/link";
 
 import MetaTags from "../modules/common/components/MetaTags";
 import useProducts from "../modules/products/hooks/useProducts";
-import ProductListItem from "../modules/products/components/ProductListItem";
+import ProductList from "../modules/products/components/ProductList";
 import Loading from "../modules/common/components/Loading";
 import useAssortments from "../modules/assortment/hooks/useAssortments";
+import CategoryListItem from "../modules/assortment/components/CategoryListItem";
 
 const Home = () => {
-  const { products, loading } = useProducts({});
-  const { assortments } = useAssortments();
+  const { products, loading, error } = useProducts({});
+  const { assortments, loading: categoriesLoading } = useAssortments();
   const { formatMessage } = useIntl();
 
-  // Get first 3 assortments for category showcase
-  const categories = assortments?.slice(0, 3) || [];
+  // Debug logging
+  console.log(
+    "Products count:",
+    products?.length,
+    "Products:",
+    products,
+    "Loading:",
+    loading,
+    "Error:",
+    error,
+  );
+  if (error) {
+    console.error("GraphQL Error:", error);
+  }
 
   return (
     <>
       <MetaTags title={formatMessage({ id: "home", defaultMessage: "Home" })} />
       <div className="bg-beige">
-        {/* Category Showcase */}
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-          <div className="sm:flex sm:items-baseline sm:justify-between">
-            <h2 className="text-2xl font-medium tracking-tight text-olivebrown-darker">
+        {/* All Categories Grid */}
+        <div className="mx-auto px-4 py-16 sm:py-24">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl font-bold tracking-tight text-olivebrown-darker sm:text-5xl">
+              {formatMessage({
+                id: "welcome_anandi",
+                defaultMessage: "Welcome to Anandi Yoga",
+              })}
+            </h1>
+            <p className="mx-auto mt-4 max-w-3xl text-lg text-olivebrown-dark">
+              {formatMessage({
+                id: "homepage_description",
+                defaultMessage:
+                  "Discover our complete collection of yoga products and explore our categories to find everything you need for your practice.",
+              })}
+            </p>
+          </div>
+
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold tracking-tight text-olivebrown-darker mb-4">
               {formatMessage({
                 id: "shop_by_category",
                 defaultMessage: "Shop by Category",
               })}
             </h2>
-            <Link
-              href="/shop"
-              className="hidden text-sm font-medium text-olivebrown hover:text-olivebrown-dark sm:block"
-            >
-              {formatMessage({
-                id: "browse_all_categories",
-                defaultMessage: "Browse all categories",
-              })}
-              <span aria-hidden="true"> &rarr;</span>
-            </Link>
+            <p className="text-olivebrown-dark max-w-2xl mx-auto">
+              Explore our thoughtfully curated collections designed to support
+              your yoga journey and mindful living.
+            </p>
           </div>
 
-          <div className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:grid-rows-2 sm:gap-x-6 lg:gap-8">
-            {/* Featured Category - Large */}
-            {categories[0] && (
-              <div className="group relative aspect-2/1 overflow-hidden rounded-lg sm:row-span-2 sm:aspect-square">
-                <img
-                  alt={categories[0]?.texts?.title}
-                  src="https://images.unsplash.com/photo-1588072432836-e10032774350?w=800&q=80"
-                  className="absolute size-full object-cover group-hover:opacity-75"
-                />
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-0 bg-gradient-to-b from-transparent to-olivebrown-darker opacity-50"
-                />
-                <div className="absolute inset-0 flex items-end p-6">
-                  <div>
-                    <h3 className="font-medium text-white">
-                      <Link href={`/shop/${categories[0]?.texts?.slug}`}>
-                        <span className="absolute inset-0" />
-                        {categories[0]?.texts?.title ||
-                          formatMessage({
-                            id: "new_arrivals",
-                            defaultMessage: "New Arrivals",
-                          })}
-                      </Link>
-                    </h3>
-                    <p aria-hidden="true" className="mt-1 text-sm text-white">
-                      {formatMessage({
-                        id: "shop_now",
-                        defaultMessage: "Shop now",
-                      })}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* Second Category */}
-            {categories[1] && (
-              <div className="group relative aspect-2/1 overflow-hidden rounded-lg sm:aspect-auto">
-                <img
-                  alt={categories[1]?.texts?.title}
-                  src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80"
-                  className="absolute size-full object-cover group-hover:opacity-75"
-                />
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-0 bg-gradient-to-b from-transparent to-olivebrown-darker opacity-50"
-                />
-                <div className="absolute inset-0 flex items-end p-6">
-                  <div>
-                    <h3 className="font-medium text-white">
-                      <Link href={`/shop/${categories[1]?.texts?.slug}`}>
-                        <span className="absolute inset-0" />
-                        {categories[1]?.texts?.title ||
-                          formatMessage({
-                            id: "accessories",
-                            defaultMessage: "Accessories",
-                          })}
-                      </Link>
-                    </h3>
-                    <p aria-hidden="true" className="mt-1 text-sm text-white">
-                      {formatMessage({
-                        id: "shop_now",
-                        defaultMessage: "Shop now",
-                      })}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* Third Category */}
-            {categories[2] && (
-              <div className="group relative aspect-2/1 overflow-hidden rounded-lg sm:aspect-auto">
-                <img
-                  alt={categories[2]?.texts?.title}
-                  src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=800&q=80"
-                  className="absolute size-full object-cover group-hover:opacity-75"
-                />
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-0 bg-gradient-to-b from-transparent to-olivebrown-darker opacity-50"
-                />
-                <div className="absolute inset-0 flex items-end p-6">
-                  <div>
-                    <h3 className="font-medium text-white">
-                      <Link href={`/shop/${categories[2]?.texts?.slug}`}>
-                        <span className="absolute inset-0" />
-                        {categories[2]?.texts?.title ||
-                          formatMessage({
-                            id: "workspace",
-                            defaultMessage: "Workspace",
-                          })}
-                      </Link>
-                    </h3>
-                    <p aria-hidden="true" className="mt-1 text-sm text-white">
-                      {formatMessage({
-                        id: "shop_now",
-                        defaultMessage: "Shop now",
-                      })}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-
-          <div className="mt-6 sm:hidden">
-            <Link
-              href="/shop"
-              className="block text-sm font-medium text-olivebrown hover:text-olivebrown-dark"
-            >
-              {formatMessage({
-                id: "browse_all_categories",
-                defaultMessage: "Browse all categories",
-              })}
-              <span aria-hidden="true"> &rarr;</span>
-            </Link>
-          </div>
+          {categoriesLoading ? (
+            <Loading />
+          ) : (
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {assortments.map((category) => (
+                <CategoryListItem key={category._id} category={category} />
+              ))}
+            </div>
+          )}
         </div>
 
-        {/* Featured Products */}
-        {loading ? (
-          <Loading />
-        ) : (
-          products.length !== 0 && (
-            <div className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 sm:pb-24 lg:px-8">
-              <div className="sm:flex sm:items-baseline sm:justify-between">
-                <h2 className="text-2xl font-medium tracking-tight text-olivebrown-darker">
-                  {formatMessage({
-                    id: "our_products",
-                    defaultMessage: "Our Products",
-                  })}
-                </h2>
-                <Link
-                  href="/shop"
-                  className="hidden text-sm font-medium text-olivebrown hover:text-olivebrown-dark sm:block"
-                >
-                  {formatMessage({
-                    id: "view_all",
-                    defaultMessage: "View all",
-                  })}
-                  <span aria-hidden="true"> &rarr;</span>
-                </Link>
-              </div>
-              <div className="mt-6 grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-4 lg:gap-x-8">
-                {products.map((product) => (
-                  <div
-                    key={product?._id}
-                    className="group relative flex flex-col overflow-hidden rounded-lg border border-olivebrown-light bg-beige-alt"
-                  >
-                    <ProductListItem product={product} disableBookmark />
-                  </div>
-                ))}
-              </div>
+        {/* All Products Section */}
+        <div className="">
+          <div className="mx-auto py-16">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold tracking-tight text-olivebrown-darker mb-4">
+                {formatMessage({
+                  id: "all_products",
+                  defaultMessage: "All Products",
+                })}
+              </h2>
+              <p className="text-olivebrown-dark max-w-2xl mx-auto">
+                Discover our complete range of premium yoga essentials,
+                carefully selected to enhance your practice and well-being.
+              </p>
             </div>
-          )
-        )}
+
+            {loading ? (
+              <Loading />
+            ) : error ? (
+              <div className="bg-beige">
+                <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+                  <div className="text-center">
+                    <h3 className="text-lg font-medium text-red-600">
+                      GraphQL Error
+                    </h3>
+                    <p className="mt-2 text-sm text-red-500">{error.message}</p>
+                    <details className="mt-4 text-left max-w-2xl mx-auto">
+                      <summary className="cursor-pointer text-sm font-medium">
+                        Show Details
+                      </summary>
+                      <pre className="mt-2 text-xs bg-red-50 p-4 rounded overflow-auto">
+                        {JSON.stringify(error, null, 2)}
+                      </pre>
+                    </details>
+                  </div>
+                </div>
+              </div>
+            ) : products.length > 0 ? (
+              <ProductList
+                products={products}
+                totalProducts={products.length}
+                onLoadMore={() => {}}
+              />
+            ) : (
+              <div className="text-center">
+                <h3 className="text-lg font-medium text-olivebrown-darker">
+                  {formatMessage({
+                    id: "no_products_found_homepage",
+                    defaultMessage: "No products found for homepage display",
+                  })}
+                </h3>
+                <p className="mt-2 text-sm text-olivebrown-dark">
+                  {formatMessage({
+                    id: "products_may_be_in_categories",
+                    defaultMessage:
+                      "Products may be available in specific categories above",
+                  })}
+                </p>
+                <p className="mt-2 text-xs text-olivebrown-dark">
+                  Debug: Found {products?.length || 0} products
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </>
   );

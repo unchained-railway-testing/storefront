@@ -39,33 +39,7 @@ const OrderSuccessTankYouPage = () => {
       {loading ? (
         <Loading />
       ) : (
-        <div>
-          <div className="bg-beige p-8 rounded-lg shadow-md text-center print:hidden">
-            <h1 className="text-2xl font-medium text-gray-800">
-              Order Confirmation
-            </h1>
-            <p className="text-gray-600 mt-4">
-              Thank you for choosing Unchained Commerce!
-            </p>
-            <p className="text-gray-600">
-              Your order has been received and is now being processed with care.
-            </p>
-            <p className="text-gray-600">
-              Should you have any questions or need further assistance, please
-              don&apos;t hesitate to reach out to our dedicated customer support
-              team.
-            </p>
-            {!emailSupportDisabled && (
-              <p className="text-gray-600">
-                You&apos;ll receive an email confirmation shortly with all the
-                details of your order.
-              </p>
-            )}
-            <p className="text-gray-600 mt-2">
-              For your convenience, we recommend printing this page as a record
-              of your order.
-            </p>
-          </div>
+        <div className="">
           <OrderDetail order={order} />
         </div>
       )}

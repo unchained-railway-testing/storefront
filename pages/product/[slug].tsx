@@ -184,35 +184,6 @@ const Detail = () => {
                       <AddToCartButton productId={product?._id} {...product} />
                     </div>
 
-                    <button
-                      type="button"
-                      className="flex items-center justify-center rounded-md px-3 py-3 text-olivebrown-light hover:bg-beige-alt hover:text-olivebrown-dark border border-olivebrown-light"
-                      onClick={() =>
-                        filteredBookmark
-                          ? removeBookmark({
-                              bookmarkId: filteredBookmark?._id,
-                            })
-                          : conditionalBookmarkProduct({
-                              productId: product?._id,
-                            })
-                      }
-                    >
-                      <HeartIcon
-                        aria-hidden="true"
-                        className={classNames(
-                          "size-6 shrink-0",
-                          filteredBookmark
-                            ? "fill-olivebrown-dark text-olivebrown-dark"
-                            : "",
-                        )}
-                      />
-                      <span className="sr-only">
-                        {intl.formatMessage({
-                          id: "add_to_favorites",
-                          defaultMessage: "Add to favorites",
-                        })}
-                      </span>
-                    </button>
                   </div>
                 </div>
 

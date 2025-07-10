@@ -1,35 +1,45 @@
 import { useQuery, gql } from "@apollo/client";
 import ProductFragment from "../fragments/ProductFragment";
 import SimpleProductPrice from "../fragments/SimpleProductPrice";
-import { ProductAssortmentPathFragment } from "../../assortment/fragments/AssortmentPath";
 
-export const PRODUCTS_QUERY = gql`
-  query Products($tags: [LowerCaseString!]) {
-    products(tags: $tags) {
+export const ALL_PRODUCTS_QUERY = gql`
+  query AllProducts($limit: Int) {
+    assortments {
       _id
-      assortmentPaths {
-        ...ProductAssortmentPathFragment
+      searchProducts {
+        products(limit: $limit) {
+          ...ProductDetails
+          ...SimpleProductPrice
+        }
       }
-      ...ProductDetails
-      ...SimpleProductPrice
     }
   }
   ${ProductFragment}
   ${SimpleProductPrice}
-  ${ProductAssortmentPathFragment}
 `;
 
-const useProducts = ({ tags = [] } = {}) => {
-  const { data, loading, error } = useQuery(PRODUCTS_QUERY, {
+const useProducts = ({ limit = 50 } = {}) => {
+  const { data, loading, error } = useQuery(ALL_PRODUCTS_QUERY, {
     variables: {
-      tags,
+      limit,
     },
   });
+
+  // Flatten products from all assortments and deduplicate
+  const allProducts = data?.assortments?.reduce((acc, assortment) => {
+    const products = assortment?.searchProducts?.products || [];
+    products.forEach(product => {
+      if (!acc.find(p => p._id === product._id)) {
+        acc.push(product);
+      }
+    });
+    return acc;
+  }, []) || [];
 
   return {
     loading,
     error,
-    products: data?.products || [],
+    products: allProducts,
   };
 };
 
