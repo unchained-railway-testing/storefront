@@ -17,7 +17,7 @@ const Header = () => {
     <header className="sticky top-0 z-[1020] overflow-visible bg-quaternary text-black opacity-100 dark:bg-slate-600 dark:text-white print:hidden">
       <div className="relative">
         <SideCart isOpen={isCartOpen} />
-        <div className="container relative mx-auto hidden w-full sm:flex sm:flex-wrap sm:items-center sm:justify-between sm:py-2">
+        <div className="container relative mx-auto hidden w-full sm:flex sm:flex-wrap sm:items-center sm:justify-between sm:py-4 sm:px-6">
           <div className="flex items-center justify-start">
             <Link href="/" className="flex items-center">
               <span className="text-xl font-medium text-gray-900">
@@ -25,11 +25,11 @@ const Header = () => {
               </span>
             </Link>
           </div>
-          <div className="mr-10 flex">
+          <div className="flex">
             <LoginCart />
           </div>
         </div>
-        <div className="container flex flex-wrap items-center justify-between px-4 py-2 sm:hidden">
+        <div className="container flex flex-wrap items-center justify-between px-6 py-3 sm:hidden">
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
               <span className="text-lg font-medium text-gray-900">
@@ -38,7 +38,7 @@ const Header = () => {
             </Link>
           </div>
 
-          <div className="mr-8 flex">
+          <div className="flex">
             <LoginCart />
           </div>
         </div>

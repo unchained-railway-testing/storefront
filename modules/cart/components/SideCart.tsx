@@ -24,51 +24,59 @@ const SideCart = ({ isOpen }) => {
     <Dialog
       open={isOpen}
       onClose={() => toggleCart(false)}
-      className="relative z-50"
+      className="relative z-[1030]"
     >
       <DialogBackdrop
         transition
-        className="fixed inset-0 bg-olivebrown-darker/75 transition-opacity duration-500 ease-in-out data-closed:opacity-0"
+        className="fixed inset-0 bg-olivebrown-darker/60 backdrop-blur-sm transition-opacity duration-300 ease-in-out data-closed:opacity-0"
       />
 
       <div className="fixed inset-0 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10 sm:pl-16">
+          <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-6 sm:pl-10">
             <DialogPanel
               transition
-              className="pointer-events-auto w-screen max-w-md transform transition duration-500 ease-in-out data-closed:translate-x-full sm:duration-700"
+              className="pointer-events-auto w-screen max-w-sm transform transition duration-300 ease-in-out data-closed:translate-x-full data-enter:translate-x-0"
             >
-              <div className="flex h-full flex-col overflow-y-auto bg-beige shadow-xl">
-                <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
-                  <div className="flex items-start justify-between">
-                    <DialogTitle className="text-lg font-medium text-olivebrown-darker">
+              <div
+                className="flex mt-3 flex-col bg-beige shadow-2xl rounded-2xl mr-4 border border-olivebrown-light/30 overflow-hidden"
+                style={{ height: "calc(100vh - 1.5rem)" }}
+              >
+                {/* Header */}
+                <div className="bg-olivebrown/5 px-6 py-4 border-b border-olivebrown-light/20">
+                  <div className="flex items-center justify-between">
+                    <DialogTitle className="text-xl font-bold text-olivebrown-darker">
                       {intl.formatMessage({
                         id: "shopping_cart",
                         defaultMessage: "Shopping cart",
                       })}
                     </DialogTitle>
-                    <div className="ml-3 flex h-7 items-center">
-                      <button
-                        type="button"
-                        onClick={() => toggleCart(false)}
-                        className="relative -m-2 p-2 text-olivebrown-light hover:text-olivebrown-dark"
-                      >
-                        <span className="absolute -inset-0.5" />
-                        <span className="sr-only">
-                          {intl.formatMessage({
-                            id: "close_panel",
-                            defaultMessage: "Close panel",
-                          })}
-                        </span>
-                        <XMarkIcon aria-hidden="true" className="size-6" />
-                      </button>
-                    </div>
+                    <button
+                      type="button"
+                      onClick={() => toggleCart(false)}
+                      className="relative p-2 rounded-full text-olivebrown-light hover:text-olivebrown-darker hover:bg-olivebrown-light/20 transition-all duration-200"
+                    >
+                      <span className="sr-only">
+                        {intl.formatMessage({
+                          id: "close_panel",
+                          defaultMessage: "Close panel",
+                        })}
+                      </span>
+                      <XMarkIcon aria-hidden="true" className="size-5" />
+                    </button>
                   </div>
+                </div>
 
+                <div className="flex-1 overflow-y-auto px-6 py-4">
                   {isEmpty ? (
-                    <div className="mt-8 flex flex-col items-center justify-center text-center">
-                      <ShoppingBagIcon className="h-12 w-12 text-olivebrown-light mb-4" />
-                      <p className="text-olivebrown-dark">
+                    <div className="flex flex-col items-center justify-center text-center py-12">
+                      <div className="w-16 h-16 bg-olivebrown-light/20 rounded-full flex items-center justify-center mb-4">
+                        <ShoppingBagIcon className="h-8 w-8 text-olivebrown-light" />
+                      </div>
+                      <h3 className="text-lg font-medium text-olivebrown-darker mb-2">
+                        Your cart is empty
+                      </h3>
+                      <p className="text-sm text-olivebrown-dark mb-6 max-w-xs">
                         {intl.formatMessage({
                           id: "no_product_in_cart",
                           defaultMessage:
@@ -87,14 +95,14 @@ const SideCart = ({ isOpen }) => {
                       </p>
                     </div>
                   ) : (
-                    <div className="mt-8">
+                    <div className="py-2">
                       <div className="flow-root">
                         <ul
                           role="list"
-                          className="-my-6 divide-y divide-olivebrown-light-2"
+                          className="divide-y divide-olivebrown-light/30"
                         >
                           {cartItems.map((item) => (
-                            <li key={item._id} className="py-6">
+                            <li key={item._id} className="py-4">
                               <CartItem {...item} />
                             </li>
                           ))}
@@ -105,55 +113,49 @@ const SideCart = ({ isOpen }) => {
                 </div>
 
                 {!isEmpty && (
-                  <div className="border-t border-olivebrown-light-2 px-4 py-6 sm:px-6">
-                    <div className="flex justify-between text-base font-medium text-olivebrown-darker">
-                      <p>
+                  <div className="border-t border-olivebrown-light/30 bg-olivebrown/5 px-6 py-5">
+                    <div className="space-y-4">
+                      <div className="flex justify-between items-center">
+                        <p className="text-lg font-semibold text-olivebrown-darker">
+                          {intl.formatMessage({
+                            id: "subtotal",
+                            defaultMessage: "Subtotal",
+                          })}
+                        </p>
+                        <p className="text-lg font-bold text-olivebrown-darker">
+                          <FormattedPrice price={user?.cart?.itemsTotal} />
+                        </p>
+                      </div>
+                      <p className="text-xs text-olivebrown-dark">
                         {intl.formatMessage({
-                          id: "subtotal",
-                          defaultMessage: "Subtotal",
+                          id: "shipping_taxes_calculated",
+                          defaultMessage:
+                            "Shipping and taxes calculated at checkout.",
                         })}
                       </p>
-                      <p>
-                        <FormattedPrice price={user?.cart?.itemsTotal} />
-                      </p>
-                    </div>
-                    <p className="mt-0.5 text-sm text-olivebrown-dark">
-                      {intl.formatMessage({
-                        id: "shipping_taxes_calculated",
-                        defaultMessage:
-                          "Shipping and taxes calculated at checkout.",
-                      })}
-                    </p>
-                    <div className="mt-6">
                       <Link
                         href="/checkout"
                         onClick={() => toggleCart(false)}
-                        className="flex items-center justify-center rounded-md border border-transparent bg-olivebrown px-6 py-3 text-base font-medium text-white shadow-xs hover:bg-olivebrown-dark"
+                        className="w-full flex items-center justify-center rounded-lg bg-olivebrown px-6 py-3 text-base font-medium text-olivebrown-darker shadow-sm hover:bg-olivebrown-light transition-all duration-200"
                       >
                         {intl.formatMessage({
                           id: "checkout",
                           defaultMessage: "Checkout",
                         })}
                       </Link>
-                    </div>
-                    <div className="mt-6 flex justify-center text-center text-sm text-olivebrown-dark">
-                      <p>
-                        {intl.formatMessage({
-                          id: "or",
-                          defaultMessage: "or",
-                        })}{" "}
+                      <div className="flex justify-center">
                         <button
                           type="button"
                           onClick={() => toggleCart(false)}
-                          className="font-medium text-olivebrown hover:text-olivebrown-dark"
+                          className="text-sm font-medium text-olivebrown hover:text-olivebrown-dark transition-colors"
                         >
                           {intl.formatMessage({
                             id: "continue_shopping",
                             defaultMessage: "Continue Shopping",
                           })}
-                          <span aria-hidden="true"> &rarr;</span>
+                          <span aria-hidden="true"> →</span>
                         </button>
-                      </p>
+                      </div>
                     </div>
                   </div>
                 )}

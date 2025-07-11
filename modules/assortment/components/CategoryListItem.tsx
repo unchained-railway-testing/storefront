@@ -35,9 +35,9 @@ const CategoryListItem = ({ category }) => {
             </div>
 
             {/* Content Area */}
-            <div className="p-6">
-              <div className="space-y-3">
-                <h3 className="text-xl font-bold text-olivebrown-darker group-hover:text-olivebrown-dark transition-colors duration-300">
+            <div className="p-4">
+              <div className="space-y-2">
+                <h3 className="text-lg font-bold text-olivebrown-darker">
                   {category.texts?.title}
                 </h3>
                 {category.texts?.subtitle && (
@@ -47,10 +47,10 @@ const CategoryListItem = ({ category }) => {
                 )}
 
                 {/* Explore Button */}
-                <div className="pt-2">
-                  <div className="inline-flex items-center space-x-2 px-4 py-2 bg-olivebrown rounded-md text-olivebrown-darker text-sm font-medium hover:bg-olivebrown-light transition-all duration-300">
+                <div className="pt-1">
+                  <div className="inline-flex items-center space-x-2 px-3 py-2 bg-olivebrown rounded-md text-olivebrown-darker text-sm font-medium hover:bg-olivebrown-light transition-all duration-300">
                     <span>Explore</span>
-                    <ArrowRightIcon className="h-4 w-4 transform group-hover:translate-x-1 transition-transform duration-300" />
+                    <ArrowRightIcon className="h-4 w-4" />
                   </div>
                 </div>
               </div>
@@ -73,9 +73,9 @@ const CategoryListItem = ({ category }) => {
             </div>
 
             {/* Content Area */}
-            <div className="p-6">
-              <div className="space-y-3">
-                <h3 className="text-xl font-bold text-olivebrown-darker group-hover:text-olivebrown-dark transition-colors duration-300">
+            <div className="p-4">
+              <div className="space-y-2">
+                <h3 className="text-lg font-bold text-olivebrown-darker">
                   {category.texts?.title}
                 </h3>
                 {category.texts?.subtitle && (
@@ -85,10 +85,10 @@ const CategoryListItem = ({ category }) => {
                 )}
 
                 {/* Explore Button */}
-                <div className="pt-2">
-                  <div className="inline-flex items-center space-x-2 px-4 py-2 bg-olivebrown rounded-md text-olivebrown-darker text-sm font-medium hover:bg-olivebrown-light transition-all duration-300">
+                <div className="pt-1">
+                  <div className="inline-flex items-center space-x-2 px-3 py-2 bg-olivebrown rounded-md text-olivebrown-darker text-sm font-medium hover:bg-olivebrown-light transition-all duration-300">
                     <span>Explore</span>
-                    <ArrowRightIcon className="h-4 w-4 transform group-hover:translate-x-1 transition-transform duration-300" />
+                    <ArrowRightIcon className="h-4 w-4" />
                   </div>
                 </div>
               </div>

@@ -38,9 +38,9 @@ const ProductListItem = ({ product, disableBookmark = false }) => {
             />
           ) : (
             <div className="w-full h-full flex items-center justify-start p-6">
-              <div className="space-y-4">
-                <div className="w-20 h-20 bg-olivebrown rounded-md flex items-center justify-center">
-                  <PhotoIcon className="h-10 w-10 text-olivebrown-darker" />
+              <div className="space-y-3">
+                <div className="w-16 h-16 bg-olivebrown rounded-md flex items-center justify-center">
+                  <PhotoIcon className="h-8 w-8 text-olivebrown-darker" />
                 </div>
                 <p className="text-olivebrown-dark text-sm font-medium">
                   No Image
@@ -50,8 +50,8 @@ const ProductListItem = ({ product, disableBookmark = false }) => {
           )}
 
           {/* Premium Badge */}
-          <div className="absolute top-4 left-4">
-            <div className="flex items-center space-x-1 bg-olivebrown px-3 py-1 rounded-md">
+          <div className="absolute top-3 left-3">
+            <div className="flex items-center space-x-1 bg-olivebrown px-2 py-1 rounded-md">
               <StarIcon className="h-3 w-3 text-olivebrown-darker" />
               <span className="text-olivebrown-darker text-xs font-bold">
                 Premium
@@ -62,10 +62,10 @@ const ProductListItem = ({ product, disableBookmark = false }) => {
       </Link>
 
       {/* Product Information */}
-      <div className="p-6 space-y-4">
+      <div className="p-4 space-y-3">
         {/* Product Title & Description */}
-        <div className="space-y-2">
-          <h3 className="text-lg font-bold text-olivebrown-darker group-hover:text-olivebrown-dark transition-colors duration-300 line-clamp-2">
+        <div className="space-y-1">
+          <h3 className="text-base font-bold text-olivebrown-darker line-clamp-2">
             <Link href={`/product/${product?.texts?.slug}`}>
               {product?.texts?.title}
             </Link>
@@ -82,28 +82,28 @@ const ProductListItem = ({ product, disableBookmark = false }) => {
           {[...Array(5)].map((_, i) => (
             <StarIcon
               key={i}
-              className={`h-4 w-4 ${
+              className={`h-3 w-3 ${
                 i < 4 ? "text-olivebrown" : "text-olivebrown-light/30"
               }`}
             />
           ))}
-          <span className="text-xs text-olivebrown-dark ml-2">
+          <span className="text-xs text-olivebrown-dark ml-1">
             (24 reviews)
           </span>
         </div>
 
         {/* Price */}
         <div className="space-y-1">
-          <p className="text-xl font-bold text-olivebrown-darker">
+          <p className="text-lg font-bold text-olivebrown-darker">
             <FormattedPrice price={product?.simulatedPrice} />
           </p>
-          <p className="text-xs text-olivebrown-dark font-medium">
+          <p className="text-xs text-olivebrown-dark">
             Free shipping included
           </p>
         </div>
 
         {/* Benefits Tags */}
-        <div className="flex flex-wrap gap-2 pt-2">
+        <div className="flex flex-wrap gap-1 pt-1">
           <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-olivebrown-light/20 text-olivebrown-darker">
             🌱 Eco-friendly
           </span>
